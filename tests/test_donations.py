@@ -42,12 +42,14 @@ def test_readme_assets():
         "docs/screenshots/desk.jpg",
         "docs/screenshots/wait.jpg",
         "docs/screenshots/mentor.jpg",
-        "docs/fa.md",
     ):
         assert rel in readme, rel
         assert os.path.isfile(os.path.join(HERE, rel)), rel
+    assert "فارسی" in readme
+    assert "## English" in readme
     assert "ChatGPT" not in readme
     assert "vibe" not in readme.lower()
+    assert os.path.isfile(os.path.join(HERE, "docs", "fa.md"))
 
 
 if __name__ == "__main__":
