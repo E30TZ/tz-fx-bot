@@ -4,7 +4,7 @@ import os
 import sys
 import signal
 
-ROOT = "/home/tvwsrxzz/telegrambot"
+ROOT = os.environ.get("TZFX_ROOT") or os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
@@ -41,6 +41,10 @@ if method == "POST":
     sys.exit(0)
 
 from wsgiref.handlers import CGIHandler
-from bot import application
+
+try:
+    from bot import application
+except Exception:
+    from telegrambot_bot import application
 
 CGIHandler().run(application)

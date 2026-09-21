@@ -1,8 +1,8 @@
-# GitHub listing
+# GitHub About (set in the website UI)
 
-Set in the GitHub UI (Settings → General). SSH cannot write these fields.
+SSH cannot write these fields. Owner: Settings → General.
 
-**Owner:** [E30TZ](https://github.com/E30TZ) (EHSAN TZ)  
+**Owner:** E30TZ (EHSAN TZ)  
 **Name:** `tz-fx-bot`  
 **Visibility:** Public  
 **Default branch:** `main`  
@@ -11,23 +11,25 @@ Set in the GitHub UI (Settings → General). SSH cannot write these fields.
 **Description:**
 
 ```
-Telegram trading assistant and ICT 2022 market scanner. WAIT is a first-class state. Stop loss required. Persian default, English first-class.
+Telegram trading assistant and ICT 2022 market scanner with Mini App, education, paper trading, and demo-gated integrations.
 ```
 
 **Topics:**
 
 ```
 telegram-bot
-telegram
 trading-bot
 forex
-crypto
 ict
-paper-trading
+ict-trading
+technical-analysis
+python
+telegram
+mini-app
 mt5
-telegram-mini-app
-farsi
-persian
+paper-trading
+crypto
+automation
 ```
 
-**Social preview:** `docs/brand/og.png` (1280×640)
+**Social preview:** `docs/brand/og.png`

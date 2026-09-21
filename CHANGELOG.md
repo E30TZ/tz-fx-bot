@@ -10,4 +10,4 @@ Public tree.
 - Mentor, 26 lessons, paper book, demo-gated CEX / MT5.
 - Donations: TRX/TRON, TON/TON, USDT/TRC20, USDT/BEP20.
 - Ubuntu installer: `scripts/install-vps.sh`.
-- GitHub presentation: graphite / forest-green identity, English README, [Persian docs](docs/fa.md).
+- GitHub presentation: graphite / forest-green identity, bilingual README, portable CGI entry.

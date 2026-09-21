@@ -17,7 +17,7 @@ Include the class of secret, where you saw it, and whether it is in git history.
 ## This repository must never contain
 
 - Telegram bot tokens
-- Mentor / speech API keys
+- Mentor / speech API keys (host file, never git)
 - Host FTP or panel passwords
 - Exchange API keys (`.live.json`)
 - User memory, receipts, paper books

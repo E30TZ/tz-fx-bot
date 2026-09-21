@@ -15,11 +15,15 @@
 </p>
 
 <p align="center">
+  <a href="https://t.me/TZ_FX_BOT">Open bot</a>
+  ·
+  <a href="docs/README.md">Docs</a>
+  ·
   <a href="#فارسی">فارسی</a>
   ·
   <a href="#english">English</a>
   ·
-  <a href="https://t.me/TZ_FX_BOT">ربات / Bot</a>
+  <a href="https://github.com/E30TZ/tz-fx-bot">Source</a>
   ·
   <a href="https://t.me/E30TZ">EHSAN TZ</a>
 </p>

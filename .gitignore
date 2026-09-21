@@ -31,6 +31,10 @@ credentials*
 uploads/
 *.log
 bot.log
+*.session
+*.sqlite
+*.sqlite3
+cookies.txt
 
 # python
 __pycache__/

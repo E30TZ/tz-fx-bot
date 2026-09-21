@@ -23,7 +23,8 @@ python3 -m pip install -r requirements.txt
 python3 tests/test_i18n.py
 python3 tests/test_repo.py
 python3 tests/test_donations.py
-python3 -m py_compile telegrambot_bot.py i18n.py live_exec.py tz_mt5_bridge.py chart_pro.py
+python3 tests/test_lang_helpers.py
+python3 -m py_compile telegrambot_bot.py i18n.py live_exec.py tz_mt5_bridge.py chart_pro.py wsgi.py
 ```
 
 No Telegram token is required for these tests.

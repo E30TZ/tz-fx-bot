@@ -11997,6 +11997,7 @@ def ensure_commands(token):
                     {"command": "learn", "description": "Learn"},
                     {"command": "wr", "description": "Win-rate"},
                     {"command": "lang", "description": "Language / زبان"},
+                    {"command": "donate", "description": "Support"},
                     {"command": "help", "description": "Help"},
         ]
         http().post(
@@ -12011,6 +12012,7 @@ def ensure_commands(token):
                     {"command": "learn", "description": "آموزش / Learn"},
                     {"command": "wr", "description": "وین‌ریت / Win-rate"},
                     {"command": "lang", "description": "زبان / Language"},
+                    {"command": "donate", "description": "حمایت / Support"},
                     {"command": "help", "description": "راهنما / Help"},
                                 ]
             },
