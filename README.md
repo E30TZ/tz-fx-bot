@@ -153,7 +153,9 @@ Live bot: [@TZ_FX_BOT](https://t.me/TZ_FX_BOT)
 
 ## Installation
 
-Python 3.6+ on a CGI host. `requests` is the only required extra.
+### CGI (current live desk)
+
+Python 3.6+. `requests` is the only required extra.
 
 ```bash
 python3 -m pip install -r requirements.txt
@@ -163,13 +165,23 @@ python3 -c "import telegrambot_bot as b; print(b.BOT_VERSION)"
 python3 tests/test_i18n.py && python3 tests/test_repo.py
 ```
 
-### CGI
-
 1. Copy `telegrambot_bot.py`, `i18n.py`, `miniapp.html`, `live_exec.py`, `chart_pro.py` next to `bot_index.cgi`.
 2. Point the webhook at `…/bot/index.cgi`.
 3. Keep `.telegram_token` and mentor keys **off** this repo.
 
-You do not need a VPS. Passenger stays off.
+Passenger stays off on the shared host.
+
+### VPS (Ubuntu)
+
+For a dedicated box, not a migrate of the live CGI:
+
+```bash
+git clone https://github.com/e30tz/tz-fx-bot.git
+cd tz-fx-bot
+sudo bash scripts/install-vps.sh
+```
+
+Details: [docs/VPS.md](docs/VPS.md). Token stays in `/opt/tz-fx-bot/.telegram_token`. `LIVE_MODE=demo` until you change it.
 
 ---
 

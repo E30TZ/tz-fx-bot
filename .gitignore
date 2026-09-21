@@ -38,6 +38,8 @@ __pycache__/
 *$py.class
 .venv/
 venv/
+id_ed25519
+id_ed25519.pub
 .env/
 .pytest_cache/
 .mypy_cache/

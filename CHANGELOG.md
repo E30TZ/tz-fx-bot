@@ -7,6 +7,7 @@ First public tree.
 - README: Hero → overview → features → architecture → screenshots → install → config → security → Support TZ FX → custom development → roadmap → contributing → disclaimer → license.
 - Brand: `docs/brand/logo.svg`, `logo.png`, `og.png`.
 - Donations (public addresses only): TRX/TRON, TON/TON, USDT/TRC20, USDT/BEP20. QR payloads decoded back to the same addresses.
+- VPS installer: `scripts/install-vps.sh` + `docs/VPS.md` (gunicorn / systemd / optional nginx). Does not touch the live CGI host.
 
 
 - ICT Mentorship 2022 engine only. WAIT is first-class. SL required.
