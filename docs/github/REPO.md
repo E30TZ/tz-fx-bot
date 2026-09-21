@@ -1,33 +1,37 @@
-# GitHub listing (set in the GitHub UI — this environment has no API auth)
+# GitHub listing for e30tz/tz-fx-bot
 
+Set in the GitHub UI after the first authenticated push (this environment has no GitHub credentials).
+
+**Owner:** [E30TZ](https://github.com/E30TZ) (EHSAN TZ)  
 **Name:** `tz-fx-bot`  
+**Full name:** `e30tz/tz-fx-bot`  
 **Visibility:** Public  
 **Default branch:** `main`  
 **Release:** `v1.0.0`
 
-**Description (≤350 chars):**
+**Description:**
 
 ```
-ICT Mentorship 2022 Telegram bot + Mini App. Persian default, English first-class. WAIT is a real state. Stop loss required. No fake win-rate.
+ICT Mentorship 2022 Telegram trading assistant + Mini App. Persian default, English first-class. WAIT is a real state. Stop loss required.
 ```
 
 **Topics:**
 
 ```
 telegram-bot
-ict
-smart-money
+telegram
+trading-bot
 forex
 crypto
-mini-app
-python
-bilingual
+ict
+paper-trading
+mt5
+telegram-mini-app
+farsi
 persian
-tehran
-trading-desk
 ```
 
-**Social preview:** upload `docs/brand/og.png`  
-**Logo / owner avatar (optional):** `docs/brand/logo.png` or `docs/brand/logo.svg`
+**Social preview:** `docs/brand/og.png`  
+**Logo:** `docs/brand/logo.png` / `docs/brand/logo.svg`
 
-Do not add fake stars, fake users, or fake P&L to the listing.
+Do not add fake stars, fake users, or fake P&L.

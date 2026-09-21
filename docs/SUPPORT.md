@@ -1,23 +1,69 @@
 # Support TZ FX
 
-💚 Support TZ FX
+## حمایت از TZ FX
 
-If TZ FX BOT is useful to you and you'd like to support its development, you can support the project through cryptocurrency.
+اگر TZ FX برای شما مفید بوده، می‌توانید با ارسال دونیت از توسعه و نگهداری پروژه حمایت کنید.
 
-اگر TZ FX BOT برای شما مفید بوده و دوست دارید از توسعه پروژه حمایت کنید، می‌توانید از طریق ارز دیجیتال از پروژه حمایت کنید.
+## Support TZ FX
 
-## Rules
+If TZ FX has been useful to you, you can support the continued development and maintenance of the project with a donation.
 
-- Donation only. Not an investment.
-- No guaranteed return. No profit share. No “earn here”.
-- Asset and network must match the row. Example: if the row says **USDT — TRC20**, send USDT on TRC20 only.
-- One row per wallet. Never mix networks.
-- No QR until a real address is published by [@E30TZ](https://t.me/E30TZ).
+Donation only. Not an investment. No return. No profit share.
 
-## Wallets
+⚠️ Always select the exact network shown below. Sending assets through the wrong network may result in permanent loss.
 
-| Asset | Network | Address |
-|---|---|---|
-| — | — | *Not published yet* |
+⚠️ هنگام انتقال، شبکه را دقیقاً مطابق شبکه نمایش‌داده‌شده انتخاب کنید. انتقال روی شبکه اشتباه ممکن است باعث از دست رفتن دارایی شود.
 
-Awaiting maintainer: asset, network, address.
+---
+
+### TRX — TRON
+
+![QR TRX TRON](donations/trx-tron.png)
+
+```
+TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba
+```
+
+Asset: **TRX** · Network: **TRON**
+
+---
+
+### TON — TON
+
+![QR TON TON](donations/ton-ton.png)
+
+```
+UQDKUFjOEWXcyjOE459jWbniQRtdNYN1taRRn1XhdA8KKiqT
+```
+
+Asset: **TON** · Network: **TON**
+
+---
+
+### USDT — TRC20
+
+![QR USDT TRC20](donations/usdt-trc20.png)
+
+```
+TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba
+```
+
+Asset: **USDT** · Network: **TRC20**  
+Do not send as ERC-20, BEP20, or TON.
+
+---
+
+### USDT — BEP20
+
+![QR USDT BEP20](donations/usdt-bep20.png)
+
+```
+0x258380877EC849e04082C4A6795d01432c3F4B7B
+```
+
+Asset: **USDT** · Network: **BEP20**  
+Do not send as TRC20, ERC-20, or TON.
+
+---
+
+No other wallets. Maintainer: [@E30TZ](https://t.me/E30TZ)

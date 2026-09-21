@@ -4,9 +4,10 @@
 
 First public tree.
 
-- README hero, architecture, ICT, mentor, Mini App, education, paper, integrations, install, security, roadmap, Support TZ FX, custom development, disclaimer.
-- Brand assets: `docs/brand/logo.svg`, `logo.png`, `og.png`.
-- Support wallets: structure only until the maintainer publishes asset + network + address. No sample QR.
+- README: Hero → overview → features → architecture → screenshots → install → config → security → Support TZ FX → custom development → roadmap → contributing → disclaimer → license.
+- Brand: `docs/brand/logo.svg`, `logo.png`, `og.png`.
+- Donations (public addresses only): TRX/TRON, TON/TON, USDT/TRC20, USDT/BEP20. QR payloads decoded back to the same addresses.
+
 
 - ICT Mentorship 2022 engine only. WAIT is first-class. SL required.
 - Bilingual FA (default) + EN via `i18n.py`, per-uid `lang`, `/lang`, Mini App chip.

@@ -17,3 +17,5 @@ jobs:
         run: python3 tests/test_repo.py
       - name: i18n
         run: python3 tests/test_i18n.py
+      - name: donations
+        run: python3 tests/test_donations.py
