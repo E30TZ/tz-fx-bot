@@ -1,0 +1,33 @@
+name: Bug
+description: Something broken in TZ FX BOT
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do **not** paste bot tokens, Gemini keys, host passwords, or receipts.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [signals / ICT, mentor, miniapp, i18n, paywall, paper / connect, deploy]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      placeholder: WAIT missing, EN string raw, Mini App tab blank…
+    validations:
+      required: true
+  - type: textarea
+    id: expect
+    attributes:
+      label: What should happen
+    validations:
+      required: true
+  - type: input
+    id: ver
+    attributes:
+      label: Bot version (from /start or CGI GET)
+      placeholder: 1.0.0

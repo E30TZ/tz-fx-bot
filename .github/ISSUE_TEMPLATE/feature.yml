@@ -1,0 +1,20 @@
+name: Feature
+description: Ask for a capability without loosening ICT
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ICT Mentorship 2022, required SL, and WAIT stay locked.
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How it should work in FA and EN
+    validations:
+      required: true

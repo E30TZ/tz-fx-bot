@@ -1,0 +1,19 @@
+name: ci
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: compile
+        run: python3 -m py_compile telegrambot_bot.py i18n.py live_exec.py tz_mt5_bridge.py chart_pro.py
+      - name: secrets scan
+        run: python3 tests/test_repo.py
+      - name: i18n
+        run: python3 tests/test_i18n.py

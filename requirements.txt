@@ -1,0 +1,4 @@
+requests>=2.28.0
+
+# Optional — Windows machine only, for tz_mt5_bridge.py
+# MetaTrader5

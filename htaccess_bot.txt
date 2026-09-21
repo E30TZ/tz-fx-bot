@@ -1,0 +1,11 @@
+Options +ExecCGI -Indexes
+AddHandler cgi-script .cgi
+DirectoryIndex index.cgi
+PassengerEnabled On
+PassengerAppRoot /home/tvwsrxzz/telegrambot
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+PassengerPython /usr/bin/python3.9
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.cgi/$1 [QSA,L]
