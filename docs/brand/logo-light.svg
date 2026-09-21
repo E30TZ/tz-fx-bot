@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="TZ FX">
+  <rect width="512" height="512" rx="96" fill="#F4F6F7"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="none" stroke="#D8DEE4" stroke-width="2"/>
+  <g fill="none" stroke="#1F6F4E" stroke-width="22" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M118 168 H250 M184 168 V348"/>
+    <path d="M274 168 H394 L274 348 H394"/>
+  </g>
+  <rect x="184" y="392" width="144" height="3" fill="#1F6F4E"/>
+</svg>

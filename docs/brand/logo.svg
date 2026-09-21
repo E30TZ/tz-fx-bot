@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="TZ FX">
-  <rect width="512" height="512" fill="#0b0d10"/>
-  <g fill="none" stroke="#c9a227" stroke-width="18" stroke-linecap="square">
-    <path d="M96 150 H256 M176 150 V360"/>
-    <path d="M250 150 H390 M250 150 L390 360 M250 360 H390"/>
+  <rect width="512" height="512" rx="96" fill="#0A0C0E"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="none" stroke="#1E2329" stroke-width="2"/>
+  <g fill="none" stroke="#3D9B74" stroke-width="22" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M118 168 H250 M184 168 V348"/>
+    <path d="M274 168 H394 L274 348 H394"/>
   </g>
-  <text x="256" y="430" text-anchor="middle" fill="#c9a227" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" letter-spacing="10">FX</text>
+  <rect x="184" y="392" width="144" height="3" fill="#3D9B74"/>
 </svg>
