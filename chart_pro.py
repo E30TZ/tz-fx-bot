@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""TZ FX white desk chart — high-res TrueType. Exclusive ICT 2022."""
+"""TZ FX white desk chart — high-res TrueType. Exclusive ICT."""
 from __future__ import print_function
 
 import io
@@ -516,7 +516,7 @@ def render(rows, pair, sig=None, label="15m", fmt_px=None, tehran_fmt=None, in_k
         im.paste(mark, (lx, ly), mark)
         d = ImageDraw.Draw(im, "RGBA")
     d.text((148, 46), ticker, font=f_brand, fill=INK)
-    d.text((148, 82), "TZ DESK  ·  ICT 2022", font=f_kicker, fill=MUTED)
+    d.text((148, 82), "TZ DESK  ·  ICT", font=f_kicker, fill=MUTED)
 
     try:
         raw_now = in_killzone(int(rows[-1]["t"])) or ""

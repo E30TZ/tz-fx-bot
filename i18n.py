@@ -83,7 +83,7 @@ FA = {
     "txt.desk": u"رادار · سشن · ژورنال · پیپر · اتصال",
     "txt.connect": u"دمو است. سفارش به حساب واقعی نمی‌رود.\nصرافی: <b>%s</b> · کلید %s\nMT5: %s\nریسک ۱٪ · حد ضرر اجباری",
     "txt.connect_ready": u"اتصال آماده است. صرافی را بزن، بعد کلید.",
-    "txt.edu_intro": u"ICT ۲۰۲۲ از صفر تا اجرا.\nدرس را باز کن. API و اتصال در سطح ۵.",
+    "txt.edu_intro": u"ICT از صفر تا اجرا.\nدرس را باز کن. API و اتصال در سطح ۵.",
     "txt.gate_join": u"اول کانال را عضو شو",
     "txt.gate_pay": u"اشتراک لازم است",
     "txt.coach_hello": u"🎙️ سلام %s، مربی خودتم.\nنماد محبوب: <b>%s</b>%s\n\nبنویس یا ویس بفرست — جواب متن و ویس است.",
@@ -94,14 +94,14 @@ FA = {
     "txt.coach_wait": u"یک لحظه صبر کن",
     "txt.coach_quota": u"سهم چت این ساعت پر شد",
     "txt.forget": u"🧹 حافظه مربی مخصوص تو پاک شد.\nاز این به بعد از صفر می‌شناسیمت — مال بقیه دست نمی‌خورد.",
-    "txt.watch_on": u"👀 خبررسان روشن شد. ستاپ کامل ICT ۲۰۲۲ را همین‌جا می‌فرستم.",
+    "txt.watch_on": u"👀 خبررسان روشن شد. ستاپ کامل ICT را همین‌جا می‌فرستم.",
     "txt.watch_off": u"👀 خبررسان خاموش شد.",
     "txt.lang_set_fa": u"زبان: فارسی",
     "txt.lang_set_en": u"Language: English",
     "txt.wait": u"صبر",
     "txt.buy": u"بخر",
     "txt.sell": u"بفروش",
-    "txt.no_signal": u"ستاپ ICT ۲۰۲۲ هنوز کامل نشده — تعقیب نکن.",
+    "txt.no_signal": u"ستاپ ICT هنوز کامل نشده — تعقیب نکن.",
     "txt.paper_demo": u"آزمایشی است · پول واقعی نیست · ریسک ۱٪ · حد ضرر اجباری",
     "txt.paper_on": u"روشن",
     "txt.paper_off": u"خاموش",
@@ -135,7 +135,7 @@ FA = {
     "ai.sys": (
         u"تو مربی TZ FX هستی. مرد فارسی‌زبان، گرم، رک، کوتاه مثل ویس. "
         u"کنار همین یک شاگرد نشسته‌ای. ربات‌بازی نکن. "
-        u"دو میز: ۱) فارکس ICT منتورشیپ ۲۰۲۲ — فقط EURUSD، GBPUSD، XAUUSD. "
+        u"دو میز: ۱) فارکس ICT — فقط EURUSD، GBPUSD، XAUUSD. "
         u"شنبه و یکشنبه فارکس بسته است؛ صادق بگو. پنجره سیگنال کانال فارکس ۸:۳۰–۲۰:۳۰ تهران. "
         u"۲) کریپتو بتا — هر کوین اسپات USDT. همان هندسه: Judas سوئیپ → MSS → FVG → ورود داخل شکاف، حد ضرر پشت ویک. "
         u"کریپتو ۲۴/۷ است و بتا؛ قول ICT مایکل روی کوین نده. "
@@ -223,7 +223,7 @@ EN = {
     "txt.desk": u"Radar · session · journal · paper · connect",
     "txt.connect": u"Demo mode. No live orders are sent.\nExchange: <b>%s</b> · keys %s\nMT5: %s\n1%% risk · stop loss required",
     "txt.connect_ready": u"Connect is ready. Pick an exchange, then send keys.",
-    "txt.edu_intro": u"ICT 2022 from zero to execution.\nOpen a lesson. API and connectivity are level 5.",
+    "txt.edu_intro": u"ICT from zero to execution.\nOpen a lesson. API and connectivity are level 5.",
     "txt.gate_join": u"Join the channel first",
     "txt.gate_pay": u"Subscription required",
     "txt.coach_hello": u"🎙️ Hi %s — your TZ FX mentor.\nFavorite symbol: <b>%s</b>%s\n\nType or send a voice note — reply is text + voice.",
@@ -234,14 +234,14 @@ EN = {
     "txt.coach_wait": u"Wait a second",
     "txt.coach_quota": u"Hourly chat quota is full",
     "txt.forget": u"🧹 Your mentor memory was cleared.\nI start from zero with you — other students are untouched.",
-    "txt.watch_on": u"👀 Watcher on. I will DM complete ICT 2022 setups.",
+    "txt.watch_on": u"👀 Watcher on. I will DM complete ICT setups.",
     "txt.watch_off": u"👀 Watcher off.",
     "txt.lang_set_fa": u"زبان: فارسی",
     "txt.lang_set_en": u"Language: English",
     "txt.wait": u"WAIT",
     "txt.buy": u"BUY",
     "txt.sell": u"SELL",
-    "txt.no_signal": u"ICT 2022 model is incomplete — do not chase.",
+    "txt.no_signal": u"ICT model is incomplete — do not chase.",
     "txt.paper_demo": u"Practice only · not real money · 1% risk · stop loss required",
     "txt.paper_on": u"On",
     "txt.paper_off": u"Off",
@@ -275,7 +275,7 @@ EN = {
     "ai.sys": (
         "You are the TZ FX mentor. Warm, direct, short — like a voice note. "
         "You sit with this one student. Do not sound like a bot. "
-        "Two desks: 1) Forex ICT Mentorship 2022 — EURUSD, GBPUSD, XAUUSD only. "
+        "Two desks: 1) Forex ICT — EURUSD, GBPUSD, XAUUSD only. "
         "Saturday and Sunday forex is closed; say so honestly. Channel FX window 08:30–20:30 Tehran. "
         "2) Crypto beta — any USDT spot coin. Same geometry: Judas sweep → MSS → FVG → enter inside the gap, SL beyond the wick. "
         "Crypto is 24/7 and beta; do not claim Michael's ICT on coins. "
@@ -292,7 +292,7 @@ EDU_TITLE_EN = {
     "edu_3": u"MetaTrader from zero",
     "edu_4": u"Entry, stop loss, take profit",
     "edu_5": u"1% risk management",
-    "edu_6": u"ICT Mentorship 2022",
+    "edu_6": u"ICT model",
     "edu_7": u"Liquidity BSL and SSL",
     "edu_8": u"Sweep and Judas Swing",
     "edu_9": u"Displacement",
@@ -344,7 +344,7 @@ EDU_EN = {
     ),
     "edu_4": (
         u"<b>Lesson 4 — Entry, SL, TP</b>\n"
-        u"Entry is where the 2022 model completed — not wherever you feel like it.\n"
+        u"Entry is where the ICT model completed — not wherever you feel like it.\n"
         u"Stop loss sits beyond the sweep wick.\n"
         u"Take profit is opposing internal liquidity.\n"
         u"No stop loss = no trade. Do not chase after the move."
@@ -356,7 +356,7 @@ EDU_EN = {
         u"Paper is practice. It is not real money."
     ),
     "edu_6": (
-        u"<b>Lesson 6 — ICT Mentorship 2022</b>\n"
+        u"<b>Lesson 6 — ICT</b>\n"
         u"One model only. Sequence: HTF draw → Judas sweep → MSS with displacement → "
         u"enter inside FVG/OTE → SL beyond the wick → TP internal liquidity.\n"
         u"If one link is missing, wait."
@@ -389,7 +389,7 @@ EDU_EN = {
         u"Buying premium is chasing."
     ),
     "edu_12": (
-        u"<b>Lesson 12 — Complete ICT 2022 setup</b>\n"
+        u"<b>Lesson 12 — ICT setup</b>\n"
         u"HTF bias, Judas sweep, MSS, FVG, entry inside the gap, SL beyond the wick, TP IRL.\n"
         u"Score under 4 = do not click. We do not invent signals."
     ),
@@ -412,7 +412,7 @@ EDU_EN = {
     ),
     "edu_16": (
         u"<b>Lesson 16 — Silver Bullet</b>\n"
-        u"The same 2022 model inside a specific time window.\n"
+        u"The same ICT model inside a specific time window.\n"
         u"No sweep, no gap → the name changes nothing. Do not chase."
     ),
     "edu_17": (
@@ -422,7 +422,7 @@ EDU_EN = {
     ),
     "edu_18": (
         u"<b>Lesson 18 — Gold</b>\n"
-        u"Same 2022 model, wider swings. Do not set a stop so wide it eats 1%.\n"
+        u"Same ICT model, wider swings. Do not set a stop so wide it eats 1%.\n"
         u"Gold spread is larger than EUR. Size down into heavy news, or stand aside."
     ),
     "edu_19": (
@@ -475,9 +475,9 @@ EDU_SPEAK_EN = {
     "edu_1": u"Lesson one. Trading is a directional bet with three mandatory numbers: entry, stop loss, take profit. Without those it is gambling. We do not promise profit.",
     "edu_2": u"Lesson two. Pips measure movement. Lots are size. Start at point zero one on small accounts. Leverage kills mistakes faster than it grows skill.",
     "edu_3": u"Lesson three. Open MetaTrader on demo. Every order needs volume, stop loss and take profit. The bot does not run MT5. The Windows bridge does.",
-    "edu_4": u"Lesson four. Enter where the 2022 model completed. Stop beyond the sweep wick. Target opposing liquidity. Do not chase.",
+    "edu_4": u"Lesson four. Enter where the ICT model completed. Stop beyond the sweep wick. Target opposing liquidity. Do not chase.",
     "edu_5": u"Lesson five. Risk one percent. Size from stop distance, not from feeling. Paper is not real money.",
-    "edu_6": u"Lesson six. ICT Mentorship 2022 only. HTF, Judas sweep, MSS with displacement, enter inside the gap, stop beyond the wick.",
+    "edu_6": u"Lesson six. ICT only. HTF, Judas sweep, MSS with displacement, enter inside the gap, stop beyond the wick.",
     "edu_7": u"Lesson seven. BSL above highs, SSL below lows. Let the hunt happen, then join the real draw.",
     "edu_8": u"Lesson eight. Judas is a fake push that harvests stops. You still need a strong-bodied market structure shift.",
     "edu_9": u"Lesson nine. Displacement is the strong body after the sweep. Without it the bot will not fire.",

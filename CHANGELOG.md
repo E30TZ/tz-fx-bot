@@ -4,7 +4,7 @@
 
 Public tree.
 
-- ICT Mentorship 2022 only. WAIT is first-class. Stop loss required.
+- ICT only. WAIT is first-class. Stop loss required.
 - Persian default, English first-class (`i18n.py`, per-uid `lang`).
 - Dark Mini App: Forex, Crypto, Desk, Learn, Mentor.
 - Mentor, 26 lessons, paper book, demo-gated CEX / MT5.

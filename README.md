@@ -5,8 +5,8 @@
 <h1 align="center">TZ FX BOT</h1>
 
 <p align="center">
-  دستیار معامله در تلگرام · اسکنر ICT Mentorship 2022<br/>
-  Telegram trading assistant · ICT 2022 market scanner
+  دستیار معامله در تلگرام · اسکنر ICT<br/>
+  Telegram trading assistant · ICT market scanner
 </p>
 
 <p align="center">
@@ -59,9 +59,9 @@
 
 ### معرفی
 
-TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس و کریپتو اسپات USDT با مدل **ICT Mentorship 2022** است.
+TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس و کریپتو اسپات USDT با مدل **ICT** است.
 
-موتور سمت را از خودش نمی‌سازد. اگر مدل ۲۰۲۲ کامل نباشد خروجی **صبر / WAIT** است. اگر کامل باشد سیگنال **با حد ضرر** است. تعقیب قیمت ممنوع است. درصد برد ساختگی چاپ نمی‌شود.
+موتور سمت را از خودش نمی‌سازد. اگر مدل ICT کامل نباشد خروجی **صبر / WAIT** است. اگر کامل باشد سیگنال **با حد ضرر** است. تعقیب قیمت ممنوع است. درصد برد ساختگی چاپ نمی‌شود.
 
 این ریپو درخت عمومی است. رازها روی هاست می‌مانند.
 
@@ -70,7 +70,7 @@ TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس 
 | | |
 |---|---|
 | اسکنر | EURUSD، GBPUSD، XAUUSD و کریپتو اسپات USDT. ساعت تهران. |
-| ICT ۲۰۲۲ | کیل‌زون، سوئیپ، جابه‌جایی، FVG، OTE، آرایه PD. امتیاز ۰ تا ۶. |
+| ICT | کیل‌زون، سوئیپ، جابه‌جایی، FVG، OTE، آرایه PD. امتیاز ۰ تا ۶. |
 | صبر | هندسه ناقص یک حالت منتشرشده است، نه خطای خاموش. |
 | مینی‌اپ | میز تیره: فارکس، کریپتو، میز، آموزش، مربی. |
 | مربی | حافظه جدا برای هر کاربر. ویس داخل، متن و ویس خارج. |
@@ -81,7 +81,7 @@ TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس 
 
 ### موتور معامله
 
-قفل روی ICT Mentorship 2022.
+قفل روی مدل ICT.
 
 1. کشش HTF → سوئیپ Judas → MSS با جابه‌جایی → ورود داخل FVG/OTE → حد ضرر پشت ویک.
 2. سمت زنده فقط با امتیاز ۳ یا بیشتر. پایین‌تر: **صبر**.
@@ -150,9 +150,9 @@ Bot: [@TZ_FX_BOT](https://t.me/TZ_FX_BOT) · free channel: [@TZ_FX_CH](https://t
 
 ### Overview
 
-TZ FX BOT is a Telegram bot and Mini App that scans FX and USDT-spot crypto against **ICT Mentorship 2022**.
+TZ FX BOT is a Telegram bot and Mini App that scans FX and USDT-spot crypto against **ICT**.
 
-The engine does not invent a side. Incomplete 2022 geometry returns **WAIT**. A complete model returns a setup **with a stop loss**. No chase. No fabricated win-rate.
+The engine does not invent a side. Incomplete ICT geometry returns **WAIT**. A complete model returns a setup **with a stop loss**. No chase. No fabricated win-rate.
 
 This repository is the public tree. Secrets stay on the host.
 
@@ -161,7 +161,7 @@ This repository is the public tree. Secrets stay on the host.
 | | |
 |---|---|
 | Scanner | EURUSD, GBPUSD, XAUUSD + USDT-spot crypto. Tehran clock. |
-| ICT 2022 | Killzone, sweep, displacement, FVG, OTE, PD array. Score 0–6. |
+| ICT | Killzone, sweep, displacement, FVG, OTE, PD array. Score 0–6. |
 | WAIT | Incomplete geometry is a published state, not a silent failure. |
 | Mini App | Dark desk: Forex, Crypto, Desk, Learn, Mentor. |
 | Mentor | Isolated per-uid memory. Voice in, text + voice out. |
@@ -172,7 +172,7 @@ This repository is the public tree. Secrets stay on the host.
 
 ### Trading engine
 
-Locked to ICT Mentorship 2022.
+The scanner is locked to the ICT model.
 
 1. HTF draw → Judas sweep → MSS with displacement → enter inside FVG/OTE → SL beyond the wick.
 2. Live side requires score ≥ 3. Below that: **WAIT**.

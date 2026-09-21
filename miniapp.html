@@ -7,8 +7,8 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 :root{
-  --bg:#0b0d10;--sheet:#12151b;--ink:#e8edf2;--dim:#8b95a3;--hair:#1e2430;
-  --gold:#c9a227;--g:#1fa971;--r:#d64545;--line:#1e2430;
+  --bg:#0A0C0E;--sheet:#12151A;--ink:#F2F4F6;--dim:#8A929A;--hair:#1E2329;
+  --gold:#3D9B74;--g:#3D9B74;--r:#C45C5C;--line:#1E2329;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:var(--bg);color:var(--ink);
@@ -76,7 +76,7 @@ html[dir="ltr"] .bot{align-self:flex-start}
 <body>
 <div class="app">
 <header>
-  <div><div class="brand">TZ <b>FX</b></div><div class="sub" id="clock">ICT 2022</div></div>
+  <div><div class="brand">TZ <b>FX</b></div><div class="sub" id="clock">ICT</div></div>
   <div>
     <button class="langb" id="langb" type="button">EN</button>
     <span class="chip" id="kz">—</span>
@@ -95,7 +95,7 @@ html[dir="ltr"] .bot{align-self:flex-start}
 const I18N={
 fa:{
   wait:"صبر", buy:"بخر", sell:"بفروش",
-  ictWait:"ICT: صبر کن", pay:"سیگنال با اشتراک", payBody:"سیگنال ICT ۲۰۲۲ و مربی با اشتراک است. آموزش برای همه باز است.",
+  ictWait:"ICT: صبر کن", pay:"سیگنال با اشتراک", payBody:"سیگنال ICT و مربی با اشتراک است. آموزش برای همه باز است.",
   buySub:"خرید اشتراک", freeLearn:"آموزش رایگان",
   crypto:"کریپتو بتا", cryptoSub:"کریپتو با اشتراک", deskSub:"میز با اشتراک",
   coachSub:"چت مربی با اشتراک",
@@ -110,8 +110,8 @@ fa:{
   learn:"درس ICT", learnSub:"از صفر تا اتصال صرافی. متن + صدا.",
   coach:"مربی TZ FX", coachHint:"سوالت را بنویس. جواب متن و ویس است. حافظه فقط مال توست.",
   send:"بفرست", back:"بازگشت", copy:"کپی ورود", openBot:"باز کردن در ربات",
-  scan:"اسکن ICT ۲۰۲۲…", miss:"داده نرسید.",
-  noChase:"ورود نده تا مدل ۲۰۲۲ کامل شود. تعقیب ممنوع.",
+  scan:"اسکن ICT…", miss:"داده نرسید.",
+  noChase:"ورود نده تا مدل ICT کامل شود. تعقیب ممنوع.",
   disc:"آموزشی است · حد ضرر اجباری · حداکثر ۱٪ · سود تضمینی نیست.",
   lv:{1:"مبتدی",2:"ICT پایه",3:"پیشرفته",4:"اجرا",5:"API و اتصال"},
   voice:"صدای مربی",
@@ -119,7 +119,7 @@ fa:{
 },
 en:{
   wait:"WAIT", buy:"BUY", sell:"SELL",
-  ictWait:"ICT: WAIT", pay:"Signals require a subscription", payBody:"ICT 2022 signals and the mentor need a subscription. Lessons stay free.",
+  ictWait:"ICT: WAIT", pay:"Signals require a subscription", payBody:"ICT signals and the mentor need a subscription. Lessons stay free.",
   buySub:"Subscribe", freeLearn:"Free lessons",
   crypto:"Crypto beta", cryptoSub:"Crypto requires a subscription", deskSub:"Desk requires a subscription",
   coachSub:"Mentor chat requires a subscription",
@@ -134,8 +134,8 @@ en:{
   learn:"ICT lessons", learnSub:"From zero to exchange connect. Text + voice.",
   coach:"TZ FX mentor", coachHint:"Ask a question. Reply is text + voice. Memory is yours only.",
   send:"Send", back:"Back", copy:"Copy entry", openBot:"Open in bot",
-  scan:"Scanning ICT 2022…", miss:"No data.",
-  noChase:"Do not enter until the 2022 model completes. Do not chase.",
+  scan:"Scanning ICT…", miss:"No data.",
+  noChase:"Do not enter until the ICT model completes. Do not chase.",
   disc:"Educational · stop loss required · max 1% · no guaranteed profit.",
   lv:{1:"Beginner",2:"ICT foundation",3:"Advanced",4:"Execution",5:"API & connect"},
   voice:"Mentor voice",
@@ -207,7 +207,7 @@ function cardsOf(list){
         ${light(ict.color, ict.action)}
       </div>
       <p class="muted">${esc(ict.why||"")}</p>
-      <div class="meta"><span class="tag gold">ICT 2022</span>
+      <div class="meta"><span class="tag gold">ICT</span>
         <span class="tag">${esc(p.bias||"—")}</span>
         <span class="tag">${esc(p.pd||"—")}</span>
         <span class="tag">${esc(chgS)}</span>
@@ -302,7 +302,7 @@ function openSig(pair){
         <div class="kv"><span>${esc(t.tp)}</span><b>${esc(ict.tp||"—")}</b></div>
         <div class="kv"><span>R:R</span><b>${esc(ict.rr||"—")}</b></div>`:`<p class="note">${esc(t.noChase)}</p>`;
     v.innerHTML=`<div class="card ict">
-      <div class="row"><div><div class="tag gold">ICT 2022</div>
+      <div class="row"><div><div class="tag gold">ICT</div>
         <div class="name" style="margin-top:8px">${esc(ict.emoji||"")} ${esc(ict.name||pair)}</div>
         <p class="muted">${esc(ict.tf||"")} · ${esc(ict.kz||"")} · ${ict.score||0}/6</p></div>
         ${light(ict.color, ict.action)}</div>

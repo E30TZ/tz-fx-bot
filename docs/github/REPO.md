@@ -11,7 +11,7 @@ SSH cannot write these fields. Owner: Settings → General.
 **Description:**
 
 ```
-Telegram trading assistant and ICT 2022 market scanner with Mini App, education, paper trading, and demo-gated integrations.
+Telegram trading assistant and ICT market scanner with Mini App, education, paper trading, and demo-gated integrations.
 ```
 
 **Topics:**

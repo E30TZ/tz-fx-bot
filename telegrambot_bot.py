@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""TZ FX BOT — ICT 2022. Python 3.8."""
+"""TZ FX BOT — ICT. Python 3.8."""
 from __future__ import print_function
 
 import fcntl
@@ -1748,7 +1748,7 @@ def share_url():
     except ImportError:
         from urllib import quote
     text = (
-        u"TZ FX — ICT ۲۰۲۲ برای یورو، پوند، طلا و کریپتو بتا. "
+        u"TZ FX — ICT برای یورو، پوند، طلا و کریپتو بتا. "
         u"آموزشی است، مشاوره مالی نیست."
     )
     return "https://t.me/share/url?url=%s&text=%s" % (
@@ -2101,7 +2101,7 @@ EDU_TITLE = {
     "edu_3": u"متاتریدر از صفر",
     "edu_4": u"ورود، حد ضرر، حد سود",
     "edu_5": u"مدیریت سرمایه ۱٪",
-    "edu_6": u"ICT منتورشیپ ۲۰۲۲",
+    "edu_6": u"مدل ICT",
     "edu_7": u"نقدینگی BSL و SSL",
     "edu_8": u"سوئیپ و Judas Swing",
     "edu_9": u"جابجایی (Displacement)",
@@ -2154,7 +2154,7 @@ EDU_SPEAK = {
         u"حجم را از فاصله ورود تا حد ضرر حساب کن، نه از حس. پیپر برای تمرین است، پول واقعی نیست."
     ),
     "edu_6": (
-        u"درس شش. مدل ما فقط آی سی تی منتورشیپ ۲۰۲۲ مایکل است. مولتی‌ستاپ نداریم. "
+        u"درس شش. مدل ما فقط آی سی تی ICT است. مولتی‌ستاپ نداریم. "
         u"ترتیب: جهت تایم بالا، جاروی جوداس، تغییر ساختار با جابجایی، ورود داخل شکاف ارزش یا او تی ای، "
         u"حد ضرر پشت ویک جارو، حد سود نقدینگی داخلی. اگر یکی ناقص است، صبر."
     ),
@@ -2181,7 +2181,7 @@ EDU_SPEAK = {
         u"خرید در پرمیوم یعنی دنبال قیمت دویدن."
     ),
     "edu_12": (
-        u"درس دوازده. ستاپ کامل ۲۰۲۲ این است: جهت تایم بالا، جاروی جوداس، تغییر ساختار، "
+        u"درس دوازده. ستاپ کامل ICT این است: جهت تایم بالا، جاروی جوداس، تغییر ساختار، "
         u"شکاف ارزش، ورود داخل شکاف، حد ضرر پشت ویک، حد سود نقدینگی داخلی. "
         u"امتیاز زیر چهار یعنی دست نزن. سیگنال الکی نمی‌سازیم."
     ),
@@ -2199,7 +2199,7 @@ EDU_SPEAK = {
         u"سیلور بولت یک پنجره کوتاه داخل نیویورک است، نه جادو."
     ),
     "edu_16": (
-        u"درس شانزده. سیلور بولت همان مدل ۲۰۲۲ داخل یک پنجره زمانی خاص است. "
+        u"درس شانزده. سیلور بولت همان مدل ICT داخل یک پنجره زمانی خاص است. "
         u"اگر جارو و شکاف نباشد، اسم سیلور بولت چیزی را عوض نمی‌کند. تعقیب نکن."
     ),
     "edu_17": (
@@ -2207,7 +2207,7 @@ EDU_SPEAK = {
         u"اگر روزانه صعودی است، دنبال خرید در دیسکانت پانزده‌دقیقه باش. خلاف روزانه یعنی صبر."
     ),
     "edu_18": (
-        u"درس هجده. طلا پرنوسان است. همان مدل ۲۰۲۲، اما حد ضرر را گشاد نگذار که یک درصد را ببلعد. "
+        u"درس هجده. طلا پرنوسان است. همان مدل ICT، اما حد ضرر را گشاد نگذار که یک درصد را ببلعد. "
         u"اسپرد طلا از یورو بیشتر است. خبر سنگین طلا را با حجم کوچک یا اصلا نزن."
     ),
     "edu_19": (
@@ -2409,10 +2409,10 @@ EDU = {
         u"مدیریت سرمایه استراتژی نیست؛ اجازه می‌دهد استراتژی زنده بماند."
     ),
     "edu_6": (
-        u"🎓 <b>درس ۶ — ICT منتورشیپ ۲۰۲۲</b>\n"
+        u"🎓 <b>درس ۶ — ICT</b>\n"
         u"سطح ۲ · ICT پایه\n"
         u"────────────\n"
-        u"ICT روش مایکل هادلستون است. منتورشیپ ۲۰۲۲ روی این زنجیره تاکید دارد:\n\n"
+        u"ICT روش مایکل هادلستون است. ICT روی این زنجیره تاکید دارد:\n\n"
         u"<b>نقدینگی → سوئیپ → جابجایی + FVG → برگشت به FVG → ورود</b>\n"
         u"جهت را از تایم بالا (روزانه / ۴ساعته / ۱ساعته) می‌گیری، اجرا در ۱۵دقیقه.\n\n"
         u"ایده مرکزی: بازار می‌رود جایی که حد ضرر جمع شده (نقدینگی)، آن را برمی‌دارد، بعد به سمت هدف واقعی حرکت می‌کند.\n\n"
@@ -2492,7 +2492,7 @@ EDU = {
         u"اول بپرس: «قیمت الان ارزان است یا گران نسبت به نوسان اخیر؟» بعد سمت را انتخاب کن."
     ),
     "edu_12": (
-        u"🎓 <b>درس ۱۲ — مدل کامل یک ستاپ ICT ۲۰۲۲</b>\n"
+        u"🎓 <b>درس ۱۲ — مدل کامل یک ستاپ ICT</b>\n"
         u"سطح ۲ · ICT پایه\n"
         u"────────────\n"
         u"زنجیره را از حفظ بگو:\n\n"
@@ -2529,7 +2529,7 @@ EDU = {
         u"مثال: چند کندل قرمز، بعد پرتاب سبز. آخرین قرمز ≈ اوردر بلاک صعودی. قیمت غالباً برای پر کردن سفارش به آن برمی‌گردد.\n\n"
         u"<b>Breaker</b> وقتی اوردر بلاک می‌شکند و نقش عوض می‌کند.\n"
         u"حمایت شکسته شده می‌تواند مقاومت شود (و برعکس). ورود روی بریکر یعنی سوار شدن روی کسانی که در بلاک قبلی گیر کردند.\n\n"
-        u"ربات فعلاً هسته ۲۰۲۲ را روی سوئیپ+FVG می‌چرخاند؛ بلاک و بریکر را برای چشم توست تا سیگنال را تایید کنی.\n\n"
+        u"ربات فعلاً هسته ICT را روی سوئیپ+FVG می‌چرخاند؛ بلاک و بریکر را برای چشم توست تا سیگنال را تایید کنی.\n\n"
         u"اگر FVG داخل یک اوردر بلاک هم‌جهت تایم بالا باشد، تلاقی قوی‌تر است.\n"
         u"اگر بلاک واضح خلاف جهت روزانه است، آن را بهانه ورود خلاف جریان نکن."
     ),
@@ -4315,7 +4315,7 @@ def fvgs(rows):
 
 def in_killzone(ts):
     hour = time.gmtime(ts).tm_hour
-    # ICT 2022: London open through lunch + NY AM. No late-NY chop, no Asia.
+    # ICT: London open through lunch + NY AM. No late-NY chop, no Asia.
     if 7 <= hour < 11:
         return u"لندن · ۱۰:۳۰–۱۴:۳۰ تهران"
     if 12 <= hour < 16:
@@ -4500,7 +4500,7 @@ def snap_px(pair, x):
 
 
 def _liq_prices(side, entry, price, rows, sh, sls, htf, pair, atr):
-    """ICT 2022 T1 = IRL only. No H4/D1 24-bar extremes (those never hit in-session)."""
+    """ICT T1 = IRL only. No H4/D1 24-bar extremes (those never hit in-session)."""
     pip = PAIRS[pair]["pip"]
     pad = max((atr or pip * 12) * 0.15, pip * 4)
     raw = []
@@ -4651,7 +4651,7 @@ def _nosig(pair, price, htf, reason, last=None, extra=None):
         "score": 0,
         "htf": htf,
         "time": tehran_fmt((last or {}).get("t") if last else None) + u" تهران",
-        "model": u"ICT ۲۰۲۲",
+        "model": u"ICT",
     }
     if extra:
         d.update(extra)
@@ -4824,7 +4824,7 @@ def _in_fvg(price, bot, top, pip, atr):
 
 
 def ict_2022(rows, pair, interval="15m", htf=None):
-    """ICT Mentorship 2022 — only. Sequence:
+    """ICT — only. Sequence:
     HTF draw → Judas sweep of SSL/BSL (PDH/PDL, Asia, equal, swing)
     → MSS with displacement → FVG of that leg → enter in the FVG/OTE
     → SL beyond sweep wick → TP opposite liquidity (IRL then ERL).
@@ -4851,7 +4851,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
     extra = {
         "buy_liq": rows[sh[-1]]["h"] if sh else None,
         "sell_liq": rows[sls[-1]]["l"] if sls else None,
-        "model": u"ICT ۲۰۲۲",
+        "model": u"ICT",
         "forming": {
             "sweep": 0,
             "mss": 0,
@@ -4924,7 +4924,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
             pair,
             price,
             htf,
-            u"MSS هست؛ FVG جابجایی منتورشیپ ۲۰۲۲ هنوز نیست",
+            u"MSS هست؛ FVG جابجایی ICT هنوز نیست",
             last,
             extra,
         )
@@ -4938,7 +4938,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
     if width <= 0:
         return _nosig(pair, price, htf, u"FVG نامعتبر", last, extra)
     if width < atr * 0.10 and not disp:
-        return _nosig(pair, price, htf, u"FVG بدون جابجایی کافی — ستاپ ۲۰۲۲ نیست", last, extra)
+        return _nosig(pair, price, htf, u"FVG بدون جابجایی کافی — ستاپ ICT نیست", last, extra)
 
     impulse_hi = max(rows[j]["h"] for j in range(sweep["i"], min(len(rows), mss["i"] + 1)))
     impulse_lo = min(rows[j]["l"] for j in range(sweep["i"], min(len(rows), mss["i"] + 1)))
@@ -4991,17 +4991,17 @@ def ict_2022(rows, pair, interval="15m", htf=None):
         if sl >= min(entry, price) - pip:
             return _nosig(pair, price, htf, u"حد ضرر روی ورود می‌افتد — سوئیپ نامعتبر", last, extra)
         side = "BUY"
-        setup = u"ICT ۲۰۲۲: Judas SSL → MSS → FVG"
+        setup = u"ICT: Judas SSL → MSS → FVG"
         if sweep.get("kind") in ("PDL", "ASIA_L", "EQL"):
-            setup = u"ICT ۲۰۲۲: Judas %s → MSS → FVG" % sweep["kind"]
+            setup = u"ICT: Judas %s → MSS → FVG" % sweep["kind"]
     else:
         sl = snap_px(pair, float(sweep["wick"]) + buf)
         if sl <= max(entry, price) + pip:
             return _nosig(pair, price, htf, u"حد ضرر روی ورود می‌افتد — سوئیپ نامعتبر", last, extra)
         side = "SELL"
-        setup = u"ICT ۲۰۲۲: Judas BSL → MSS → FVG"
+        setup = u"ICT: Judas BSL → MSS → FVG"
         if sweep.get("kind") in ("PDH", "ASIA_H", "EQH"):
-            setup = u"ICT ۲۰۲۲: Judas %s → MSS → FVG" % sweep["kind"]
+            setup = u"ICT: Judas %s → MSS → FVG" % sweep["kind"]
 
     risk_px = abs(entry - sl)
     min_px = max(atr * 0.45, pip * min_risk_pips(pair, interval))
@@ -5022,7 +5022,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
         "pair": pair,
         "side": side,
         "setup": setup,
-        "model": u"ICT ۲۰۲۲",
+        "model": u"ICT",
         "price": price,
         "entry": entry,
         "sl": sl,
@@ -5060,7 +5060,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
     if d1_against:
         return _nosig(pair, price, htf, u"خلاف جهت روزانه — وارد نشو", last, extra)
     if not disp:
-        return _nosig(pair, price, htf, u"جابجایی کافی نیست — ستاپ ۲۰۲۲ نیست", last, extra)
+        return _nosig(pair, price, htf, u"جابجایی کافی نیست — ستاپ ICT نیست", last, extra)
     if not inside_now:
         return _nosig(pair, price, htf, u"قیمت داخل FVG نیست — صبر کن", last, extra)
     warns = []
@@ -5085,7 +5085,7 @@ def ict_2022(rows, pair, interval="15m", htf=None):
     if sig.get("smt"):
         sig["confluence"] = list(sig.get("confluence") or []) + [u"SMT"]
     if sc < 4:
-        return _nosig(pair, price, htf, u"امتیاز زیر ۴ — ستاپ ۲۰۲۲ کامل نیست", last, extra)
+        return _nosig(pair, price, htf, u"امتیاز زیر ۴ — ستاپ ICT کامل نیست", last, extra)
     return sig
 
 
@@ -5117,7 +5117,7 @@ def ict_checklist(sig):
 
 
 def refine_entry_5m(sig, pair):
-    """2022 execution: 15m PD array, 5m FVG inside it for tighter entry."""
+    """ICT execution: 15m PD array, 5m FVG inside it for tighter entry."""
     if not sig or sig.get("side") not in ("BUY", "SELL"):
         return sig
     bot, top = sig.get("fvg_bot"), sig.get("fvg_top")
@@ -5150,7 +5150,7 @@ def refine_entry_5m(sig, pair):
     sig["fvg_bot"] = picked["bot"]
     sig["fvg_top"] = picked["top"]
     sig["inside_fvg"] = True
-    sig["setup"] = (sig.get("setup") or u"ICT ۲۰۲۲") + u" · ورود ۵م"
+    sig["setup"] = (sig.get("setup") or u"ICT") + u" · ورود ۵م"
     fixed, why = validate_geometry(sig, price, pair)
     if not fixed:
         return sig
@@ -5192,7 +5192,7 @@ def notify_watchers(token, sig):
     if not d:
         return
     text = (
-        u"👀 <b>ستاپ ICT ۲۰۲۲ کامل شد</b>\n"
+        u"👀 <b>ستاپ ICT کامل شد</b>\n"
         u"%s <b>%s</b>  %s\n"
         u"ورود <code>%s</code> · SL <code>%s</code> · TP <code>%s</code>\n"
         u"%s"
@@ -5800,7 +5800,7 @@ def _paint_price_panel(
         twl = text_w(tick_lab, 2)
         text(tick_lab, x0 + 22 + max(0, (44 - twl) // 2), y0 + 30, bg, 2)
         text(title, x0 + 78, y0 + 22, gold, 2)
-        text("ICT 2022  MARKET", x0 + 78, y0 + 46, muted, 1)
+        text("ICT  MARKET", x0 + 78, y0 + 46, muted, 1)
         # pair
         text(title, x0 + 22, y0 + 78, ink, 3)
         twp = text_w(title, 3)
@@ -6167,7 +6167,7 @@ def format_signal(sig):
         unit = u"پیپ"
     htf = sig.get("htf") or {}
     tf_l = sig.get("tf_label") or u"۱۵م"
-    model = sig.get("model") or u"ICT ۲۰۲۲"
+    model = sig.get("model") or u"ICT"
     if is_crypto_pair(pair):
         model = u"ICT بتا · کریپتو"
     if sig["side"] == "NO SIGNAL":
@@ -6195,7 +6195,7 @@ def format_signal(sig):
             tf_l,
             fmt_px(pair, sig["price"]),
             hline,
-            sig.get("reason") or u"ستاپ ICT ۲۰۲۲ کامل نیست",
+            sig.get("reason") or u"ستاپ ICT کامل نیست",
             extra,
             ict_checklist(sig),
         )
@@ -6298,9 +6298,9 @@ def format_signal_story(sig):
     if sig.get("inside_fvg"):
         steps.append(u"4️⃣ قیمت برگشت داخل FVG — تعقیب نکردیم")
     elif sig.get("ote"):
-        steps.append(u"4️⃣ ورود در ناحیه OTE (تخفیف/پرمیوم ۲۰۲۲)")
+        steps.append(u"4️⃣ ورود در ناحیه OTE (تخفیف/پرمیوم)")
     else:
-        steps.append(u"4️⃣ نزدیک آرایه قیمتی ۲۰۲۲")
+        steps.append(u"4️⃣ نزدیک آرایه قیمتی")
     steps.append(
         u"5️⃣ حد ضرر پشت شدوی سوئیپ  <code>%s</code>" % fmt_px(pair, sig["sl"])
     )
@@ -6316,7 +6316,7 @@ def format_signal_story(sig):
     note = (sig.get("ai_note") or "").strip()
     ai = (u"\n🤖 " + note) if note else ""
     warn = (u"\n⚠️ " + sig["warn"]) if sig.get("warn") else ""
-    setup = sig.get("setup") or u"ICT ۲۰۲۲"
+    setup = sig.get("setup") or u"ICT"
     return (
         pe(u"🧠")
         + u" <b>داستان همین سیگنال</b>\n%s <b>%s</b>  ·  %s  ·  %s\n<i>%s</i>\n────────────\n%s\n────────────\n📋 %s%s%s%s\n────────────\n"
@@ -6609,7 +6609,7 @@ def _trade_result_text(t, hit, px):
             u"%s <b>%s</b>  ·  %s\n"
             u"ورود <code>%s</code>  →  الان <code>%s</code>\n"
             u"نتیجه  <b>%+.1fR</b>  " + pe(u"✨") + u"\n"
-            u"آفرین — این ستاپ ۲۰۲۲ بسته شد. آموزشی است."
+            u"آفرین — این ستاپ ICT بسته شد. آموزشی است."
         ) % (
             meta.get("emoji") or "",
             pair,
@@ -8948,7 +8948,7 @@ AI_SYS = (
     "تو مربی TZ FX هستی. مرد فارسی‌زبان، گرم، رک، کوتاه مثل ویس. "
     "کنار همین یک شاگرد نشسته‌ای. ربات‌بازی نکن. "
     "دو میز: "
-    "۱) فارکس ICT منتورشیپ ۲۰۲۲ مایکل — فقط EURUSD، GBPUSD، XAUUSD. "
+    "۱) فارکس ICT — فقط EURUSD، GBPUSD، XAUUSD. "
     "شنبه و یکشنبه فارکس بسته است؛ صادق بگو. پنجره سیگنال کانال فارکس ۸:۳۰–۲۰:۳۰ تهران. "
     "۲) کریپتو بتا — هر کوین اسپات USDT (BTC ETH SOL و بقیه؛ اسم را بگو). "
     "همان هندسه: Judas سوئیپ → MSS → FVG → ورود داخل شکاف، حد ضرر پشت ویک. "
@@ -9496,7 +9496,7 @@ def ai_review(sig, board=""):
 
 
 def ai_confirm(sig, rows):
-    """ICT 2022: CONFIRM or REJECT only. Never widen TP to H4/D1."""
+    """ICT: CONFIRM or REJECT only. Never widen TP to H4/D1."""
     if not sig or sig.get("side") not in ("BUY", "SELL"):
         return sig
     sig = dict(sig)
@@ -9534,7 +9534,7 @@ def ai_confirm(sig, rows):
     if weak:
         sig["ai_verdict"] = "REJECT"
         sig["ai_block"] = True
-        sig["ai_note"] = u"فیلتر ICT ۲۰۲۲: امتیاز/جهت/هدف ضعیف — وارد نشو"
+        sig["ai_note"] = u"فیلتر ICT: امتیاز/جهت/هدف ضعیف — وارد نشو"
         return sig
     cache_key = "%s|%s|%s|%s" % (
         sig.get("pair"),
@@ -9548,7 +9548,7 @@ def ai_confirm(sig, rows):
         return sig
     htf = sig.get("htf") or {}
     prompt = (
-        "ICT Mentorship 2022. VERIFY only. Do NOT invent or change prices. "
+        "ICT. VERIFY only. Do NOT invent or change prices. "
         "CONFIRM only if Judas+MSS+FVG, not chased, HTF aligned, SL beyond wick, "
         "TP is nearby in-session IRL, R:R 1.0-2.0. Otherwise REJECT.\n"
         "Line1 only: CONFIRM or REJECT\n"
@@ -9618,7 +9618,7 @@ def ai_confirm(sig, rows):
         extra = {
             "ai_verdict": "PENDING",
             "ai_block": False,
-            "ai_note": u"AI لحظه‌ای در دسترس نبود — فیلتر ۲۰۲۲ رد نکرد",
+            "ai_note": u"AI لحظه‌ای در دسترس نبود — فیلتر ICT رد نکرد",
         }
         sig.update(extra)
     snap = {
@@ -9690,7 +9690,7 @@ def local_brain(text):
         )
     if any(w in low for w in (u"آموزش", u"یاد", "ict", "fvg", u"سوئیپ", "ote")):
         return (
-            u"ICT ۲۰۲۲: نقدینگی → سوئیپ → جابجایی/FVG → ورود داخل FVG، "
+            u"ICT: نقدینگی → سوئیپ → جابجایی/FVG → ورود داخل FVG، "
             u"حد ضرر پشت سوئیپ، حد سود نقدینگی مخالف.\n"
             u"امتیاز زیر ۴ را معامله نکن. درس کامل دکمه 🎓."
         )
@@ -10097,7 +10097,7 @@ def handle_user(token, user_id, chat_id, cmd, payload=""):
         send_message(
             token,
             chat_id,
-            u"👀 خبررسان روشن شد. ستاپ کامل ICT ۲۰۲۲ را همین‌جا می‌فرستم.",
+            u"👀 خبررسان روشن شد. ستاپ کامل ICT را همین‌جا می‌فرستم.",
             kb_after(),
         )
         return
@@ -11168,7 +11168,7 @@ def handle_callback(token, cq):
         send_message(
             token,
             chat_id,
-            u"👀 فعال شد. هر وقت ستاپ ICT ۲۰۲۲ کامل شود همین‌جا خبرت می‌کنم.\nخاموش: /watch off",
+            u"👀 فعال شد. هر وقت ستاپ ICT کامل شود همین‌جا خبرت می‌کنم.\nخاموش: /watch off",
             kb_after(),
         )
         return
@@ -11545,7 +11545,7 @@ def render_market_board(items):
     clk = tehran_fmt(None, "latin")
     T["text"](clk, W - 28 - T["text_w"](clk, 1), 28, muted, 1)
     T["hline"](56, 22, W - 24, goldb, 1, 2)
-    T["text"]("ICT 2022  ·  LIVE PX ON 15M  ·  CANDLES 4H", 24, 62, muted, 1)
+    T["text"]("ICT  ·  LIVE PX ON 15M  ·  CANDLES 4H", 24, 62, muted, 1)
 
     ranked = sorted(items or [], key=lambda x: -int(x.get("pts") or 0))
     best_pair = ranked[0]["pair"] if ranked else None
@@ -11736,7 +11736,7 @@ def format_hourly(items):
             if reason:
                 lines.append(u"   %s" % reason[:120])
         else:
-            reason = (sig.get("reason") or u"ستاپ ICT ۲۰۲۲ کامل نیست").strip()
+            reason = (sig.get("reason") or u"ستاپ ICT کامل نیست").strip()
             lines.append(u"   %s" % reason[:120])
         lines.append("")
     best = ranked[0] if ranked else None
@@ -11754,7 +11754,7 @@ def format_hourly(items):
         lines.append(u"چرا: %s." % why)
         lines.append(u"تمرکز روی همین نماد — برد تضمینی نیست.")
     else:
-        lines.append(u"🎯 این ساعت ستاپ تمیز ICT ۲۰۲۲ نیست.")
+        lines.append(u"🎯 این ساعت ستاپ تمیز ICT نیست.")
         lines.append(u"صبر کن. دنبال «حتماً یکی را بزن» نباش.")
     try:
         dail = daily_r_blob()
@@ -12037,7 +12037,7 @@ def ensure_public(token):
         http().post(
             tg_api(token) + "/setMyShortDescription",
             json={
-                "short_description": "TZ FX · ICT ۲۰۲۲ · یورو پوند طلا · آموزشی"
+                "short_description": "TZ FX · ICT · یورو پوند طلا · آموزشی"
             },
             timeout=10,
         )
@@ -12045,7 +12045,7 @@ def ensure_public(token):
             tg_api(token) + "/setMyDescription",
             json={
                 "description": (
-                    "TZ FX — سیگنال ICT منتورشیپ ۲۰۲۲ برای یورو، پوند و طلا.\n"
+                    "TZ FX — سیگنال ICT برای یورو، پوند و طلا.\n"
                     "مینی‌اپ، چارت، مربی متن و ویس، ۲۴ درس، وین‌ریت واقعی از حد سود/ضرر.\n"
                     "کانال رایگان @TZ_FX_CH · VIP خصوصی با اشتراک (کارت + رسید).\n"
                     "آموزشی است، مشاوره مالی نیست، سرمایه در خطر است. درصد الکی نمی‌گوییم."
@@ -12065,7 +12065,7 @@ def ensure_public(token):
         text = (
             "🚀 <b>TZ FX BOT فعال شد</b>\n"
             "━━━━━━━━━━━━━━\n"
-            "سیگنال زنده ICT 2022 برای:\n"
+            "سیگنال زنده ICT برای:\n"
             "💶 یورو   💷 پوند   🥇 طلا\n\n"
             "داخل ربات:\n"
             "• ورود / حد ضرر / حد سود\n"
@@ -12592,7 +12592,7 @@ def _rsi14(rows):
 
 def miniapp_pack(pair, rows=None, htf=None):
     """Mini-app only. Extra confluence so beginners get more in-session ideas
-    without changing the ICT 2022 channel engine."""
+    without changing the ICT channel engine."""
     meta = PAIRS.get(pair) or {}
     pip = meta.get("pip") or 0.0001
     out = {
@@ -12838,7 +12838,7 @@ def miniapp_pack(pair, rows=None, htf=None):
 
 
 def miniapp_ict_blob(pair, sig=None):
-    """ICT Mentorship 2022 only."""
+    """ICT only."""
     meta = PAIRS.get(pair) or {}
     seq = [
         {"name": u"جهت تایم بالا", "ok": False},
@@ -12854,12 +12854,12 @@ def miniapp_ict_blob(pair, sig=None):
         "pair": pair,
         "emoji": meta.get("emoji") or "",
         "name": meta.get("name") or pair,
-        "model": u"ICT ۲۰۲۲",
+        "model": u"ICT",
         "kind": "ict",
         "side": "WAIT",
         "action": u"صبر",
         "color": "wait",
-        "why": u"مدل منتورشیپ ۲۰۲۲ هنوز کامل نشده — تعقیب نکن.",
+        "why": u"مدل ICT هنوز کامل نشده — تعقیب نکن.",
         "steps": (
             u"۱) جهت تایم بالا  ۲) جاروی Judas از نقدینگی  "
             u"۳) MSS با جابجایی  ۴) ورود فقط داخل FVG/OTE  "
@@ -12915,7 +12915,7 @@ def miniapp_ict_blob(pair, sig=None):
         out["action"] = u"بخر" if side == "BUY" else u"بفروش"
         why = sig.get("setup") or sig.get("reason") or u""
         if not why:
-            why = u"ستاپ ICT ۲۰۲۲ کامل است. ورود فقط داخل شکاف؛ تعقیب نکن."
+            why = u"ستاپ ICT کامل است. ورود فقط داخل شکاف؛ تعقیب نکن."
         out["why"] = why
         if sig.get("entry") is not None:
             out["entry"] = fmt_px(pair, sig["entry"])
@@ -13088,7 +13088,7 @@ def miniapp_state(uid=None):
         "pair": (best_ict or {}).get("pair"),
         "action": (best_ict or {}).get("action") or u"صبر",
         "side": (best_ict or {}).get("side") or "WAIT",
-        "why": (best_ict or {}).get("why") or u"الان ستاپ ICT ۲۰۲۲ کامل نیست.",
+        "why": (best_ict or {}).get("why") or u"الان ستاپ ICT کامل نیست.",
         "live": bool(best_ict),
     }
     base["wr"] = miniapp_wr_blob()
