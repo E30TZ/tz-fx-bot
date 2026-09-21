@@ -55,4 +55,5 @@ def test_readme_assets():
 if __name__ == "__main__":
     test_readme_wallets()
     test_qr_files()
+    test_readme_assets()
     print("donations ok")
