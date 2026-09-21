@@ -121,6 +121,17 @@ FA = {
     "cmd.lang": u"زبان / Language",
     "cmd.desk": u"میز",
     "cmd.support": u"پشتیبانی",
+    "btn.donate": u"💚 حمایت",
+    "head.donate": u"حمایت از TZ FX",
+    "txt.donate": (
+        u"اگر TZ FX برای شما مفید بوده، می‌توانید با ارسال دونیت از توسعه و نگهداری پروژه حمایت کنید.\n"
+        u"این دونیت است، سرمایه‌گذاری نیست. سود و بازدهی ندارد.\n\n"
+        u"⚠️ هنگام انتقال، شبکه را دقیقاً مطابق شبکه نمایش‌داده‌شده انتخاب کنید. انتقال روی شبکه اشتباه ممکن است باعث از دست رفتن دارایی شود.\n\n"
+        u"<b>TRX — TRON</b>\n<code>TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba</code>\n\n"
+        u"<b>TON — TON</b>\n<code>UQDKUFjOEWXcyjOE459jWbniQRtdNYN1taRRn1XhdA8KKiqT</code>\n\n"
+        u"<b>USDT — TRC20</b>\n<code>TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba</code>\n\n"
+        u"<b>USDT — BEP20</b>\n<code>0x258380877EC849e04082C4A6795d01432c3F4B7B</code>"
+    ),
     "ai.sys": (
         u"تو مربی TZ FX هستی. مرد فارسی‌زبان، گرم، رک، کوتاه مثل ویس. "
         u"کنار همین یک شاگرد نشسته‌ای. ربات‌بازی نکن. "
@@ -250,6 +261,17 @@ EN = {
     "cmd.lang": u"Language / زبان",
     "cmd.desk": u"Desk",
     "cmd.support": u"Support",
+    "btn.donate": u"💚 Support",
+    "head.donate": u"Support TZ FX",
+    "txt.donate": (
+        u"If TZ FX has been useful to you, you can support the continued development and maintenance of the project with a donation.\n"
+        u"This is a donation, not an investment. No return.\n\n"
+        u"⚠️ Always select the exact network shown. Sending assets through the wrong network may result in permanent loss.\n\n"
+        u"<b>TRX — TRON</b>\n<code>TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba</code>\n\n"
+        u"<b>TON — TON</b>\n<code>UQDKUFjOEWXcyjOE459jWbniQRtdNYN1taRRn1XhdA8KKiqT</code>\n\n"
+        u"<b>USDT — TRC20</b>\n<code>TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba</code>\n\n"
+        u"<b>USDT — BEP20</b>\n<code>0x258380877EC849e04082C4A6795d01432c3F4B7B</code>"
+    ),
     "ai.sys": (
         "You are the TZ FX mentor. Warm, direct, short — like a voice note. "
         "You sit with this one student. Do not sound like a bot. "

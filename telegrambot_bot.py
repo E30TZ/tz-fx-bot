@@ -2001,6 +2001,7 @@ def kb_main(uid=None):
         ],
         [
             btn(T("btn.support"), "support", style="primary"),
+            btn(T("btn.donate"), "donate"),
             btn(T("btn.lang"), "lang_toggle"),
         ],
     ]
@@ -10299,6 +10300,16 @@ def handle_user(token, user_id, chat_id, cmd, payload=""):
         if not is_pro(user_id):
             send_message(token, chat_id, txt_paywall(user_id), kb_pay())
         return
+    if cmd in ("/donate", "donate", u"حمایت", "/supporttz"):
+        if not gate(token, user_id, chat_id, need_pro=False):
+            return
+        send_message(
+            token,
+            chat_id,
+            tz_head(T("head.donate")) + T("txt.donate") + u"\n" + tz_foot(),
+            kb_main(user_id),
+        )
+        return
     if cmd in ("/lang", "lang", u"زبان", "/language", "language"):
         if not gate(token, user_id, chat_id, need_pro=False):
             return
@@ -10870,6 +10881,17 @@ def handle_callback(token, cq):
             reject_receipt(token, uid)
         return
 
+    if data == "donate":
+        answer_callback(token, cq_id)
+        if not gate(token, user_id, chat_id, need_pro=False):
+            return
+        send_message(
+            token,
+            chat_id,
+            tz_head(T("head.donate")) + T("txt.donate") + u"\n" + tz_foot(),
+            kb_main(user_id),
+        )
+        return
     if data == "support":
         answer_callback(token, cq_id)
         if not gate(token, user_id, chat_id, need_pro=False):
