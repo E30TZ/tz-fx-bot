@@ -4,6 +4,10 @@
 
 First public tree.
 
+- README hero, architecture, ICT, mentor, Mini App, education, paper, integrations, install, security, roadmap, Support TZ FX, custom development, disclaimer.
+- Brand assets: `docs/brand/logo.svg`, `logo.png`, `og.png`.
+- Support wallets: structure only until the maintainer publishes asset + network + address. No sample QR.
+
 - ICT Mentorship 2022 engine only. WAIT is first-class. SL required.
 - Bilingual FA (default) + EN via `i18n.py`, per-uid `lang`, `/lang`, Mini App chip.
 - Dark 5-tab Mini App: Forex, Crypto, Desk, Learn, Mentor.

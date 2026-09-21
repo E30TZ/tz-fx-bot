@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="TZ FX">
+  <rect width="512" height="512" fill="#0b0d10"/>
+  <g fill="none" stroke="#c9a227" stroke-width="18" stroke-linecap="square">
+    <path d="M96 150 H256 M176 150 V360"/>
+    <path d="M250 150 H390 M250 150 L390 360 M250 360 H390"/>
+  </g>
+  <text x="256" y="430" text-anchor="middle" fill="#c9a227" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" letter-spacing="10">FX</text>
+</svg>
