@@ -1,202 +1,209 @@
 <p align="center">
-  <img src="docs/brand/logo.svg" width="96" height="96" alt="TZ FX"/>
+  <img src="docs/brand/logo.svg" width="72" height="72" alt="TZ FX"/>
 </p>
 
 <h1 align="center">TZ FX BOT</h1>
 
 <p align="center">
-  <b>ICT Mentorship 2022</b> · Persian default · English first-class<br/>
-  WAIT is a real state · Stop loss required · No fake win-rate
+  <strong>Telegram trading assistant and ICT 2022 market scanner.</strong><br/>
+  WAIT is a first-class state. Stop loss is required. No fabricated performance.
 </p>
 
 <p align="center">
-  <a href="https://t.me/TZ_FX_BOT">@TZ_FX_BOT</a>
-  ·
-  <a href="https://t.me/TZ_FX_CH">@TZ_FX_CH</a>
-  ·
-  <a href="https://t.me/E30TZ">@E30TZ</a>
-  ·
-  EHSAN TZ
+  <a href="https://t.me/TZ_FX_BOT"><img src="https://img.shields.io/badge/Telegram-TZ%20FX%20BOT-3D9B74?labelColor=0A0C0E" alt="Telegram bot"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3D9B74?labelColor=0A0C0E" alt="MIT"/></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/Version-1.0.0-3D9B74?labelColor=0A0C0E" alt="1.0.0"/></a>
+  <img src="https://img.shields.io/badge/Python-3.9+-3D9B74?labelColor=0A0C0E" alt="Python 3.9+"/>
 </p>
 
 <p align="center">
-  <img src="docs/brand/og.png" alt="TZ FX — ICT Mentorship 2022" width="640"/>
+  <a href="https://t.me/TZ_FX_BOT">Open the bot</a>
+  ·
+  <a href="docs/fa.md">مستندات فارسی</a>
+  ·
+  <a href="https://github.com/E30TZ/tz-fx-bot">Source</a>
+  ·
+  <a href="https://t.me/E30TZ">EHSAN TZ</a>
+</p>
+
+<p align="center">
+  <img src="docs/brand/og.png" alt="TZ FX BOT — Telegram trading assistant" width="720"/>
 </p>
 
 ---
 
-**فارسی.** دستیار معامله در تلگرام با مدل ICT Mentorship 2022. زبان پیش‌فرض فارسی است؛ انگلیسی هم سطح اول است. اگر مدل کامل نباشد خروجی **صبر / WAIT** است. حد ضرر اجباری است. درصد برد ساختگی چاپ نمی‌شود. آموزش است، مشاوره مالی نیست، سود تضمینی ندارد.
+## Overview
 
-**English.** Telegram trading assistant + dark Mini App. The engine prints a full ICT 2022 setup **with SL**, or it prints **WAIT**. It does not invent BUY/SELL, chase price, or fabricate performance.
+TZ FX BOT is a Telegram bot and Mini App for scanning FX and USDT-spot crypto against **ICT Mentorship 2022**.
+
+The engine does not invent a side. If the 2022 model is incomplete it returns **WAIT**. If it is complete it returns a setup **with a stop loss**.
+
+Persian is the product default. English is a first-class UI and documentation language, stored in `i18n.py`, persisted per Telegram user.
+
+This repository is the public tree. Secrets stay on the host.
+
+Live instance (shared CGI): [@TZ_FX_BOT](https://t.me/TZ_FX_BOT) · free channel [@TZ_FX_CH](https://t.me/TZ_FX_CH)
+
+---
+
+## Core features
 
 | | |
 |---|---|
-| Bot | [@TZ_FX_BOT](https://t.me/TZ_FX_BOT) |
-| Free channel | [@TZ_FX_CH](https://t.me/TZ_FX_CH) |
-| VIP | [invite](https://t.me/+uWnJTwhqC_FhMmM8) |
-| Crypto beta | [invite](https://t.me/+8hM_fEp9y7Y0ZmQ8) |
-| Developer | [@E30TZ](https://t.me/E30TZ) · [EHSAN TZ](https://github.com/E30TZ) |
-| Release | `v1.0.0` · branch `main` |
+| Scanner | EURUSD, GBPUSD, XAUUSD + USDT-spot crypto. Tehran clock. |
+| ICT 2022 | Killzone, sweep, displacement, FVG, OTE, PD array. Score 0–6. |
+| WAIT | Incomplete geometry is a published state, not a silent failure. |
+| Mini App | Dark desk: Forex, Crypto, Desk, Learn, Mentor. |
+| Mentor | Isolated per-uid memory. Voice in, text + voice out. |
+| Education | 26 lessons, five levels, through API / broker connect. |
+| Paper | Separate book. Not the channel win-rate. |
+| Connect | CEX REST + MT5 bridge queue. `LIVE_MODE=demo` until you change it. |
+| Language | `/lang`, home switcher, Mini App chip. |
 
 ---
 
-## Project overview
+## How it works
 
-TZ FX is a CGI Telegram bot (Bot API, no aiogram) and a Telegram Mini App.
+```
+Telegram  ──webhook──►  WSGI / CGI
+                         ├─ ICT scan
+                         ├─ i18n.t(lang, key)
+                         ├─ Mini App API
+                         ├─ mentor
+                         └─ live_exec (demo) ──► MT5 bridge
+```
 
-- **Strategy lock:** ICT Mentorship 2022 only.
-- **Language:** `fa` default, `en` first-class, persisted per Telegram user (`i18n.py`).
-- **Desk:** FX (EURUSD, GBPUSD, XAUUSD) + USDT-spot crypto. Tehran time.
-- **Mentor:** in-product Q&A, voice in / voice+text out, memory isolated per uid.
-- **Paper + connect:** demo-gated. Live exchange `/order` stays off until you change that on purpose.
-- **Paywall:** join the free channel, then card + receipt. Owner confirms VIP.
+Hourly FX scan does not attach a chart. `/start` signal charts stay, and they draw **price + SL + TP only**.
 
-This repository is the public tree. Host secrets stay on the host.
+Channel FX window 20:30–08:30 Tehran is silent. In-bot DM is 24/7 and still WAIT when there is no model.
 
 ---
 
-## Features
+## Trading engine
 
-| Area | What you get |
+Locked to ICT Mentorship 2022.
+
+1. HTF draw → Judas sweep → MSS with displacement → enter inside FVG/OTE → SL beyond the wick.
+2. Live side requires score ≥ 3. Below that: **WAIT**.
+3. No stop loss → no live side.
+4. No invented prices. No chase. No “multi-setup” mashup.
+5. Closed book only. No fabricated win-rate.
+6. Saturday FX is closed. Crypto is USDT spot, beta.
+7. Risk cap 1%. Educational disclaimer on the desk.
+
+Do not loosen this in a pull request.
+
+---
+
+## Telegram
+
+Commands: `/start` `/signal` `/crypto` `/learn` `/wr` `/lang` `/help` `/donate`
+
+Owner extras: `/connect` `/paper` `/admin`
+
+Paywall: join [@TZ_FX_CH](https://t.me/TZ_FX_CH), then card + receipt. Owner confirms VIP ([invite](https://t.me/+uWnJTwhqC_FhMmM8)). Crypto beta: [invite](https://t.me/+8hM_fEp9y7Y0ZmQ8).
+
+---
+
+## Mini App
+
+Five tabs, dark desk, FA/EN chip. InitData is HMAC-checked before a uid is trusted. WAIT is a badge, not a missing screen.
+
+---
+
+## Education
+
+Twenty-six lessons. Levels: beginner → ICT foundation → advanced → execution → API & connect. Copy lives in `i18n.py`. Lesson audio on the host is Persian; English users still get English text.
+
+---
+
+## Paper trading
+
+Paper is practice. It is not the channel book and must not be quoted as a marketing win-rate. Demo must not send live crypto `/order`.
+
+---
+
+## Integrations
+
+| | |
 |---|---|
-| Signals | ICT 2022 geometry or WAIT. SL on every live side. |
-| Language | `/lang`, home switcher, Mini App chip. Written EN, not raw machine translation. |
-| Mini App | Dark 5 tabs: Forex, Crypto, Desk, Learn, Mentor. |
-| Mentor | In-bot mentor. Per-uid memory. Hear after a signal. |
-| Education | 26 lessons, text + voice. Level 5 is API / connect. |
-| Paper | Isolated book. Not the channel win-rate. |
-| Connect | CEX REST + MT5 bridge queue. `LIVE_MODE=demo`. |
-| Channel | 20:30–08:30 Tehran silent. In-bot DM 24/7, still WAIT when empty. |
+| Binance, Bybit, OKX, Bitget, … | `live_exec.py`, demo-gated |
+| MetaTrader 5 | `tz_mt5_bridge.py` on the Windows PC that runs MT5 |
+| Telegram | Bot API, webhook |
 
-### ICT engine
+Keys: host file + `deleteMessage`. Never log a key.
 
-Locked to **ICT Mentorship 2022**.
+---
 
-1. Killzone, draw on liquidity, displacement, FVG, OTE, PD array.
-2. Score 0–6. A live side needs 3+.
-3. Incomplete model → **WAIT**. Do not chase.
-4. Every live side has a stop loss.
-5. No invented prices. No “multi-setup”.
-6. Hourly FX scan does not attach a chart. `/start` charts stay.
-7. Chart canvas: white, 2560×1600, price + SL + TP only.
-8. Closed book only. No fake %.
-9. Saturday FX is closed. Crypto is USDT spot.
-10. Risk cap 1%. Educational disclaimer on the desk.
+## Screenshots
 
-### Mentor
+Interface previews with demonstration data. Not a live book. Not performance claims.
 
-Product feature: isolated memory per Telegram uid, voice message in → voice + text out, `/forget` clears that user’s memory. System prompt follows the user language.
+<p>
+<img src="docs/screenshots/desk.jpg" alt="Desk — WAIT on EUR, GBP, gold" width="240"/>
+<img src="docs/screenshots/wait.jpg" alt="ICT WAIT, score 2/6" width="240"/>
+<img src="docs/screenshots/mentor.jpg" alt="Mentor explaining FVG" width="240"/>
+</p>
 
-### Mini App
-
-Dark trading desk. Tabs: **Forex · Crypto · Desk · Learn · Mentor**. WAIT is a first-class badge. FA/EN chip. InitData HMAC before uid is trusted.
-
-### Education
-
-26 lessons, five levels: beginner → ICT foundation → advanced → execution → API & connect. Strings live in `i18n.py`.
-
-### Paper trading
-
-Paper is a separate book. It is not the channel win-rate. Mode: paper first, then 1% risk. Demo must not send live crypto `/order`.
-
-### Integrations
-
-| Venue | Notes |
+| | |
 |---|---|
-| Binance, Bybit, OKX, Bitget, … | REST via `live_exec.py`, demo-gated |
-| MetaTrader 5 | Windows bridge `tz_mt5_bridge.py` |
-| Telegram | Bot API, webhook CGI |
-
-Keys: host file + `deleteMessage`. Never `log()` a key.
+| Desk | FX radar with WAIT as the default honest state |
+| Signal | Incomplete 2022 model — do not chase |
+| Mentor | Product Q&A, isolated to the Telegram user |
 
 ---
 
 ## Architecture
 
-```
-Telegram ──webhook──► bot_index.cgi ──► telegrambot_bot.application
-                                         ├─ callbacks / DMs
-                                         ├─ ICT scan (FX + USDT spot)
-                                         ├─ i18n.t(lang, key)
-                                         ├─ Mini App  miniapp.html + ?app=api
-                                         ├─ mentor
-                                         └─ live_exec (demo) ──queue──► tz_mt5_bridge
-```
-
 | File | Role |
 |---|---|
 | `telegrambot_bot.py` | Bot, webhook, Mini App API, ICT, mentor, paywall |
-| `i18n.py` | FA/EN catalog + 26 EN lessons |
-| `miniapp.html` | Dark Mini App |
+| `i18n.py` | FA / EN catalog + 26 English lessons |
+| `miniapp.html` | Mini App |
 | `live_exec.py` | Demo-gated CEX + MT5 queue |
-| `tz_mt5_bridge.py` | Windows poller beside MetaTrader 5 |
-| `chart_pro.py` | White high-res charts: price + SL/TP only |
-
-Webhook path: `https://ehsantz.pingbaz.space/bot/index.cgi`  
-Passenger off. CGI.
-
----
-
-## Screenshots / Demo
-
-UI chrome only. Not performance claims. No win-rate, no P&L.
-
-<p>
-<img src="docs/screenshots/miniapp-desk.png" alt="Mini App desk" width="280"/>
-<img src="docs/screenshots/signal-wait.png" alt="ICT WAIT" width="220"/>
-<img src="docs/screenshots/mentor.png" alt="Mentor" width="220"/>
-</p>
-
-Live bot: [@TZ_FX_BOT](https://t.me/TZ_FX_BOT)
+| `tz_mt5_bridge.py` | Windows poller |
+| `chart_pro.py` | White charts: price, SL, TP |
+| `wsgi.py` | Gunicorn / CGI entry |
+| `scripts/install-vps.sh` | Ubuntu installer |
 
 ---
 
 ## Installation
 
-### CGI (current live desk)
-
-Python 3.6+. `requests` is the only required extra.
+### Shared CGI
 
 ```bash
 python3 -m pip install -r requirements.txt
 cp .env.example .env
-# put the bot token in .telegram_token — file, not the shell history
+# token → .telegram_token  (file, not the shell history)
 python3 -c "import telegrambot_bot as b; print(b.BOT_VERSION)"
 python3 tests/test_i18n.py && python3 tests/test_repo.py
 ```
 
-1. Copy `telegrambot_bot.py`, `i18n.py`, `miniapp.html`, `live_exec.py`, `chart_pro.py` next to `bot_index.cgi`.
-2. Point the webhook at `…/bot/index.cgi`.
-3. Keep `.telegram_token` and mentor keys **off** this repo.
+Point the webhook at the CGI path. Keep tokens off git.
 
-Passenger stays off on the shared host.
-
-### VPS (Ubuntu)
-
-For a dedicated box, not a migrate of the live CGI:
+### Ubuntu VPS
 
 ```bash
-git clone https://github.com/e30tz/tz-fx-bot.git
+git clone https://github.com/E30TZ/tz-fx-bot.git
 cd tz-fx-bot
 sudo bash scripts/install-vps.sh
 ```
 
-Details: [docs/VPS.md](docs/VPS.md). Token stays in `/opt/tz-fx-bot/.telegram_token`. `LIVE_MODE=demo` until you change it.
+See [docs/VPS.md](docs/VPS.md). Token: `/opt/tz-fx-bot/.telegram_token`. Leave `LIVE_MODE=demo` until you change it.
 
 ---
 
 ## Configuration
 
-See [`.env.example`](.env.example). Real values belong in host files:
-
-| File (host only) | Purpose |
+| Host file | Purpose |
 |---|---|
 | `.telegram_token` | Bot token |
 | Mentor key file | Mentor / speech |
 | `.live.json` | Exchange keys |
 | `.edu_audio/` | Persian lesson voice |
 
-`LIVE_MODE=demo` until you intentionally go live.
+Copy [`.env.example`](.env.example). Never commit real values.
 
 ---
 
@@ -204,9 +211,7 @@ See [`.env.example`](.env.example). Real values belong in host files:
 
 Read [SECURITY.md](SECURITY.md).
 
-Never commit tokens, API keys, host FTP, exchange keys, user memory, or receipts.
-
-If a key leaked in chat, rotate it. Do not paste it into an issue.
+Report issues to [@E30TZ](https://t.me/E30TZ), not as a public GitHub issue, if a live token or receipt is involved.
 
 ---
 
@@ -216,106 +221,95 @@ If a key leaked in chat, rotate it. Do not paste it into an issue.
 
 اگر TZ FX برای شما مفید بوده، می‌توانید با ارسال دونیت از توسعه و نگهداری پروژه حمایت کنید.
 
-### Support TZ FX
+If TZ FX has been useful to you, you can support continued development with a donation.
 
-If TZ FX has been useful to you, you can support the continued development and maintenance of the project with a donation.
+Donation only — not an investment, not a deposit, not a managed account. No return.
 
-This is a **donation**. Not an investment, not a deposit, not a managed account. No return, no profit share.
+⚠️ Always select the exact network shown. Sending assets through the wrong network may result in permanent loss.
 
-⚠️ **Always select the exact network shown above. Sending assets through the wrong network may result in permanent loss.**
-
-⚠️ **هنگام انتقال، شبکه را دقیقاً مطابق شبکه نمایش‌داده‌شده انتخاب کنید. انتقال روی شبکه اشتباه ممکن است باعث از دست رفتن دارایی شود.**
-
-Use the copy control on each address block in GitHub.
+⚠️ هنگام انتقال، شبکه را دقیقاً مطابق شبکه نمایش‌داده‌شده انتخاب کنید. انتقال روی شبکه اشتباه ممکن است باعث از دست رفتن دارایی شود.
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
 **TRX — TRON**
 
-<img src="docs/donations/trx-tron.png" alt="QR TRX TRON" width="140"/>
+<img src="docs/donations/trx-tron.png" width="112" alt="QR TRX TRON"/>
 
 ```
 TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba
 ```
 
-Network: **TRON** · Asset: **TRX**
-
 </td>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
 **TON — TON**
 
-<img src="docs/donations/ton-ton.png" alt="QR TON TON" width="140"/>
+<img src="docs/donations/ton-ton.png" width="112" alt="QR TON"/>
 
 ```
 UQDKUFjOEWXcyjOE459jWbniQRtdNYN1taRRn1XhdA8KKiqT
 ```
 
-Network: **TON** · Asset: **TON**
-
 </td>
 </tr>
 <tr>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
 **USDT — TRC20**
 
-<img src="docs/donations/usdt-trc20.png" alt="QR USDT TRC20" width="140"/>
+<img src="docs/donations/usdt-trc20.png" width="112" alt="QR USDT TRC20"/>
 
 ```
 TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba
 ```
 
-Network: **TRC20** · Asset: **USDT**  
-Do not send this as ERC-20 / BEP20 / TON.
+Not ERC-20 / BEP20 / TON.
 
 </td>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
 **USDT — BEP20**
 
-<img src="docs/donations/usdt-bep20.png" alt="QR USDT BEP20" width="140"/>
+<img src="docs/donations/usdt-bep20.png" width="112" alt="QR USDT BEP20"/>
 
 ```
 0x258380877EC849e04082C4A6795d01432c3F4B7B
 ```
 
-Network: **BEP20** · Asset: **USDT**  
-Do not send this as TRC20 / ERC-20 / TON.
+Not TRC20 / ERC-20 / TON.
 
 </td>
 </tr>
 </table>
 
-No other wallets. QR payloads were encoded from these four addresses and decoded back with OpenCV before commit.
+No other wallets. QR payloads were encoded from these addresses and decoded back before commit.
 
 ---
 
-## Custom Development
+## Custom development
 
-Scoped work via [@E30TZ](https://t.me/E30TZ):
+[EHSAN TZ](https://github.com/E30TZ) · Telegram [@E30TZ](https://t.me/E30TZ)
+
+Scoped engineering — not a clone of TZ FX signals:
 
 - Custom Telegram bots
-- Automation
-- Telegram Mini Apps
-- Trading systems
-- API integrations
 - Web applications
-
-Serious briefs only. Not a clone of TZ FX signals.
+- APIs
+- Automation systems
+- Software products
 
 ---
 
 ## Roadmap
 
-Honest queue. Not a promise of dates or returns.
+Not a date promise. Not a return promise.
 
-- Remaining lesson voice clips on the host (`edu_19`, `edu_20`, `edu_23`, `edu_24`, `edu_26`).
-- English lesson audio, same voice pipeline, when quota allows.
+- Remaining Persian lesson audio on the host (`edu_19`, `edu_20`, `edu_23`, `edu_24`, `edu_26`)
+- English lesson audio when quota allows
 
-Out of scope: loosening ICT, fake WR, guaranteed profit.
+Out of scope: loosening ICT, fake win-rate, guaranteed profit.
 
 ---
 

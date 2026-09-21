@@ -34,6 +34,22 @@ def test_qr_files():
         assert os.path.getsize(p) > 200, name
 
 
+def test_readme_assets():
+    readme = open(os.path.join(HERE, "README.md"), encoding="utf-8").read()
+    for rel in (
+        "docs/brand/logo.svg",
+        "docs/brand/og.png",
+        "docs/screenshots/desk.jpg",
+        "docs/screenshots/wait.jpg",
+        "docs/screenshots/mentor.jpg",
+        "docs/fa.md",
+    ):
+        assert rel in readme, rel
+        assert os.path.isfile(os.path.join(HERE, rel)), rel
+    assert "ChatGPT" not in readme
+    assert "vibe" not in readme.lower()
+
+
 if __name__ == "__main__":
     test_readme_wallets()
     test_qr_files()

@@ -2,42 +2,32 @@
 
 ## Supported versions
 
-| Version | Support |
+| Version | Supported |
 |---|---|
-| 1.x | Active |
+| 1.x | Yes |
 
 ## Report a vulnerability
 
-Telegram the developer: [@E30TZ](https://t.me/E30TZ)
+Telegram [@E30TZ](https://t.me/E30TZ).
 
-Do **not** open a public GitHub issue for a live token, Gemini key, host password, or user receipt.
+Do **not** open a public GitHub issue for a live bot token, API key, host password, or user receipt.
 
-Include:
+Include the class of secret, where you saw it, and whether it is in git history. Do not paste the value. There is no bounty.
 
-- what is exposed (bot token, API key, host panel, user PII)
-- where you found it (file, log, Mini App response)
-- whether it is already in git history
+## This repository must never contain
 
-You will get a reply when the key is rotated. Do not expect a bounty.
-
-## What this repo must never contain
-
-- Telegram bot tokens (`123456:ABC…`)
-- Gemini / Google API keys
-- Host FTP or cPanel passwords (`.host_ftp`, `.host_new`)
+- Telegram bot tokens
+- Mentor / speech API keys
+- Host FTP or panel passwords
 - Exchange API keys (`.live.json`)
 - User memory, receipts, paper books
-- `.env` with real values
+- A filled `.env`
 
-Use `.env.example` only.
+Use `.env.example` only. Public donation addresses in README are not secrets.
 
-## Runtime rules already in the bot
+## Runtime rules
 
-- Connect keys: host file + `deleteMessage`. Never `log()` a key.
+- Connect keys: host file + `deleteMessage`. Never log a key.
 - `LIVE_MODE=demo` must not call live crypto `/order`.
-- Mini App initData is HMAC-checked before uid is trusted.
-- CGI webhook has no `secret_token` because Passenger is off — keep the script path unguessable and the host TLS valid.
-
-## If you fork this
-
-Rotate **every** credential. The public bot `@TZ_FX_BOT` is not yours.
+- Mini App `initData` is HMAC-checked before uid is trusted.
+- Rotate every credential if you fork this. `@TZ_FX_BOT` is not yours.

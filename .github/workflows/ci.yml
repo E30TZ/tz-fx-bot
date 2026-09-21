@@ -19,3 +19,5 @@ jobs:
         run: python3 tests/test_i18n.py
       - name: donations
         run: python3 tests/test_donations.py
+      - name: helpers
+        run: python3 tests/test_lang_helpers.py

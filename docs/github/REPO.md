@@ -1,18 +1,17 @@
-# GitHub listing for e30tz/tz-fx-bot
+# GitHub listing
 
-Set in the GitHub UI after the first authenticated push (this environment has no GitHub credentials).
+Set in the GitHub UI (Settings → General). SSH cannot write these fields.
 
 **Owner:** [E30TZ](https://github.com/E30TZ) (EHSAN TZ)  
 **Name:** `tz-fx-bot`  
-**Full name:** `e30tz/tz-fx-bot`  
 **Visibility:** Public  
 **Default branch:** `main`  
-**Release:** `v1.0.0`
+**Homepage:** `https://t.me/TZ_FX_BOT`
 
 **Description:**
 
 ```
-ICT Mentorship 2022 Telegram trading assistant + Mini App. Persian default, English first-class. WAIT is a real state. Stop loss required.
+Telegram trading assistant and ICT 2022 market scanner. WAIT is a first-class state. Stop loss required. Persian default, English first-class.
 ```
 
 **Topics:**
@@ -31,7 +30,4 @@ farsi
 persian
 ```
 
-**Social preview:** `docs/brand/og.png`  
-**Logo:** `docs/brand/logo.png` / `docs/brand/logo.svg`
-
-Do not add fake stars, fake users, or fake P&L.
+**Social preview:** `docs/brand/og.png` (1280×640)

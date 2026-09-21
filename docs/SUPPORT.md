@@ -4,13 +4,11 @@
 
 اگر TZ FX برای شما مفید بوده، می‌توانید با ارسال دونیت از توسعه و نگهداری پروژه حمایت کنید.
 
-## Support TZ FX
+If TZ FX has been useful to you, you can support continued development with a donation.
 
-If TZ FX has been useful to you, you can support the continued development and maintenance of the project with a donation.
+Donation only. Not an investment. No return.
 
-Donation only. Not an investment. No return. No profit share.
-
-⚠️ Always select the exact network shown below. Sending assets through the wrong network may result in permanent loss.
+⚠️ Always select the exact network shown. Sending assets through the wrong network may result in permanent loss.
 
 ⚠️ هنگام انتقال، شبکه را دقیقاً مطابق شبکه نمایش‌داده‌شده انتخاب کنید. انتقال روی شبکه اشتباه ممکن است باعث از دست رفتن دارایی شود.
 
@@ -30,7 +28,7 @@ Asset: **TRX** · Network: **TRON**
 
 ### TON — TON
 
-![QR TON TON](donations/ton-ton.png)
+![QR TON](donations/ton-ton.png)
 
 ```
 UQDKUFjOEWXcyjOE459jWbniQRtdNYN1taRRn1XhdA8KKiqT
@@ -49,7 +47,7 @@ TF4TbyEu1eC1sYTW1oviBbmPKT1KkxViba
 ```
 
 Asset: **USDT** · Network: **TRC20**  
-Do not send as ERC-20, BEP20, or TON.
+Not ERC-20, BEP20, or TON.
 
 ---
 
@@ -62,7 +60,7 @@ Do not send as ERC-20, BEP20, or TON.
 ```
 
 Asset: **USDT** · Network: **BEP20**  
-Do not send as TRC20, ERC-20, or TON.
+Not TRC20, ERC-20, or TON.
 
 ---
 
