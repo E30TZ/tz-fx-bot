@@ -4032,7 +4032,7 @@ def transcribe_audio(raw, mime="audio/ogg"):
         ],
         "generationConfig": {"temperature": 0.0, "maxOutputTokens": 512},
     }
-    models = GEMINI_STT_MODELS
+    models = GEMINI_STT_MODELS[:1]
     for model in models:
         url = (
             "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -4044,11 +4044,11 @@ def transcribe_audio(raw, mime="audio/ogg"):
                 url,
                 headers={"Content-Type": "application/json", "X-goog-api-key": key},
                 json=body,
-                timeout=18,
+                timeout=10,
             )
         except Exception as e:
             log("stt fail %s %s" % (model, str(e)[:80]))
-            continue
+            return None
         if r.status_code == 429:
             log("stt 429 %s" % model)
             continue
@@ -9620,9 +9620,9 @@ def gemini_ask(history, user_text, strong=False):
         "temperature": 0.28 if strong else 0.35,
         "maxOutputTokens": 1024 if strong else 512,
     }
-    models = GEMINI_CHAT_MODELS if strong else GEMINI_MODELS
+    models = (GEMINI_CHAT_MODELS if strong else GEMINI_MODELS)[:1]
     cap = 2500 if strong else 1800
-    wait = 12 if strong else 8
+    wait = 5
     for model in models:
         cfg = dict(gen)
         if strong and ("3.5" in model or "3.1" in model) and "lite" not in model:
@@ -9645,15 +9645,16 @@ def gemini_ask(history, user_text, strong=False):
                 timeout=wait,
             )
         except Exception as e:
-            log("gemini fail %s %s" % (model, str(e)[:80]))
-            continue
+            _gemini_block_until = time.time() + 45
+            log("gemini fail %s %s — pause 45s" % (model, str(e)[:80]))
+            return None
         if r.status_code == 429:
             _gemini_block_until = time.time() + 90
             log("gemini 429 %s — pause 90s" % model)
-            continue
+            return None
         if r.status_code != 200:
             log("gemini http %s %s" % (r.status_code, model))
-            continue
+            return None
         try:
             data = r.json()
         except Exception:
@@ -9685,7 +9686,7 @@ def llm_ask(history, user_text, strong=False):
         if role in ("user", "assistant") and m.get("content"):
             messages.append({"role": role, "content": str(m["content"])[:clip]})
     messages.append({"role": "user", "content": user_text[:2200 if strong else 1400]})
-    for model in AI_MODELS:
+    for model in AI_MODELS[:1]:
         try:
             r = requests.post(
                 AI_URL,
@@ -9695,7 +9696,7 @@ def llm_ask(history, user_text, strong=False):
                     "max_tokens": 700 if strong else 400,
                     "temperature": 0.3 if strong else 0.35,
                 },
-                timeout=16 if strong else 12,
+                timeout=8,
             )
         except Exception as e:
             log("llm fail %s %s" % (model, str(e)[:80]))
