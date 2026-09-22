@@ -31,7 +31,7 @@
 <p align="center">
   <a href="https://t.me/TZ_FX_BOT"><img src="https://img.shields.io/badge/Telegram-TZ%20FX%20BOT-3D9B74?labelColor=0A0C0E" alt="Telegram"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3D9B74?labelColor=0A0C0E" alt="MIT"/></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/Version-1.0.0-3D9B74?labelColor=0A0C0E" alt="1.0.0"/></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/Version-3.0.0-3D9B74?labelColor=0A0C0E" alt="3.0.0"/></a>
   <img src="https://img.shields.io/badge/Python-3.9+-3D9B74?labelColor=0A0C0E" alt="Python"/>
 </p>
 

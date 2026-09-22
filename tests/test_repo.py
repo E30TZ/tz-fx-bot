@@ -71,7 +71,7 @@ def test_no_secret_payloads():
 
 def test_bot_version():
     s = open(os.path.join(HERE, "telegrambot_bot.py"), encoding="utf-8").read()
-    assert 'BOT_VERSION = "1.0.0"' in s
+    assert 'BOT_VERSION = "3.0.0"' in s
     assert "import i18n" in s
     assert "lang_toggle" in s
     assert 'T("btn.hear")' in s or "btn.hear" in s

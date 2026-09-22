@@ -71,7 +71,13 @@ FA = {
     "btn.go_connect": u"🔗 رفتن به اتصال",
     "btn.refresh": u"🔄 بروزرسانی",
     "btn.open_pos": u"📡 معاملات باز",
-    "txt.start": u"%s تهران\nفارکس: یورو · پوند · طلا\nکریپتو بتا: هر کوین USDT — اسم را بفرست\n\nسیگنال الکی نیست. حد ضرر اجباری.\nکانال رایگان @TZ_FX_CH",
+    "txt.start": (
+        u"%s تهران\n"
+        u"<b>فارکس</b> یورو · پوند · طلا\n"
+        u"<b>کریپتو</b> اسپات USDT — اسم را بفرست\n\n"
+        u"مدل ناقص = صبر. حد ضرر اجباری. تعقیب ممنوع.\n"
+        u"کانال رایگان @TZ_FX_CH"
+    ),
     "txt.help": u"/signal سیگنال\n/crypto کوین\n/connect اتصال\n/paper پیپر\n/learn آموزش\n/wr وین‌ریت\n/lang زبان\n\nویس بفرست — مربی جواب می‌دهد.",
     "txt.join": u"اول کانال رایگان را عضو شو، بعد «عضو شدم» را بزن.\nسیگنال کامل با اشتراک است.",
     "txt.paywall_active": u"اشتراک فعال تا %s · حدود %s روز مانده",
@@ -122,6 +128,17 @@ FA = {
     "cmd.desk": u"میز",
     "cmd.support": u"پشتیبانی",
     "btn.donate": u"💚 حمایت",
+    "btn.tools": u"🧰 ابزار",
+    "btn.size": u"حجم ۱٪",
+    "btn.rr": u"R:R",
+    "btn.pips": u"پیپ",
+    "btn.clocks": u"ساعت‌ها",
+    "btn.opens": u"اوپن روز/هفته",
+    "btn.check": u"چک‌لیست",
+    "btn.bias": u"جهت HTF",
+    "btn.alerts": u"هشدار",
+    "head.tools": u"ابزار میز",
+    "txt.tools": u"ماشین‌حساب و ساعت سشن. سیگنال نمی‌سازد. حد ضرر اجباری است.",
     "head.donate": u"حمایت از TZ FX",
     "txt.donate": (
         u"اگر TZ FX برای شما مفید بوده، می‌توانید با ارسال دونیت از توسعه و نگهداری پروژه حمایت کنید.\n"
@@ -211,7 +228,13 @@ EN = {
     "btn.go_connect": u"🔗 Open connect",
     "btn.refresh": u"🔄 Refresh",
     "btn.open_pos": u"📡 Open trades",
-    "txt.start": u"%s Tehran\nForex: EUR · GBP · Gold\nCrypto beta: any USDT spot — send the name\n\nNo fabricated signals. Stop loss is mandatory.\nFree channel @TZ_FX_CH",
+    "txt.start": (
+        u"%s Tehran\n"
+        u"<b>Forex</b> EUR · GBP · Gold\n"
+        u"<b>Crypto</b> USDT spot — send the name\n\n"
+        u"Incomplete model = WAIT. Stop loss required. Do not chase.\n"
+        u"Free channel @TZ_FX_CH"
+    ),
     "txt.help": u"/signal signals\n/crypto coins\n/connect venues\n/paper paper trading\n/learn lessons\n/wr win-rate\n/lang language\n\nSend a voice note — the mentor replies.",
     "txt.join": u"Join the free channel first, then tap “I joined”.\nFull signals require a subscription.",
     "txt.paywall_active": u"Active until %s · about %s days left",
@@ -262,6 +285,17 @@ EN = {
     "cmd.desk": u"Desk",
     "cmd.support": u"Support",
     "btn.donate": u"💚 Support",
+    "btn.tools": u"🧰 Tools",
+    "btn.size": u"1% size",
+    "btn.rr": u"R:R",
+    "btn.pips": u"Pips",
+    "btn.clocks": u"Clocks",
+    "btn.opens": u"Day/week open",
+    "btn.check": u"Checklist",
+    "btn.bias": u"HTF bias",
+    "btn.alerts": u"Alerts",
+    "head.tools": u"Desk tools",
+    "txt.tools": u"Calculators and session clocks. They do not invent a side. Stop loss required.",
     "head.donate": u"Support TZ FX",
     "txt.donate": (
         u"If TZ FX has been useful to you, you can support the continued development and maintenance of the project with a donation.\n"

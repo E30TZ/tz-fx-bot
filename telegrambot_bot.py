@@ -72,7 +72,7 @@ WEBHOOK_FLAG = os.path.join(HERE, ".webhook_on")
 WEBHOOK_SECRET_FILE = os.path.join(HERE, ".webhook_secret")
 
 OWNER_ID = 8351722954
-BOT_VERSION = "1.0.0"
+BOT_VERSION = "3.0.0"
 ENGINE_GEN = 6
 BOT_USER = "Tz_fx_bot"
 BOT_URL = "https://t.me/Tz_fx_bot"
@@ -7580,12 +7580,161 @@ def kb_desk():
             ],
             [
                 btn(T("btn.journal"), "journal_card", style="success"),
+                btn(T("btn.tools"), "tools_menu", style="primary"),
+            ],
+            [
                 btn(T("btn.paper"), "paper_menu"),
+                btn(T("btn.alerts"), "alert_menu"),
             ],
             [btn(T("btn.connect"), "connect_menu", style="success")],
-            [btn(u"🏠 خانه", "home", style="primary")],
+            [btn(T("btn.home"), "home", style="primary")],
         ]
     }
+
+
+def kb_tools():
+    return {
+        "inline_keyboard": [
+            [
+                btn(u"🧮 " + T("btn.size"), "tool_size", style="primary"),
+                btn(u"📐 " + T("btn.rr"), "tool_rr", style="success"),
+            ],
+            [
+                btn(u"📏 " + T("btn.pips"), "tool_pips"),
+                btn(u"🕒 " + T("btn.clocks"), "tool_clocks", style="primary"),
+            ],
+            [
+                btn(u"📍 " + T("btn.opens"), "tool_opens"),
+                btn(u"✅ " + T("btn.check"), "tool_check", style="success"),
+            ],
+            [
+                btn(u"📡 " + T("btn.bias"), "tool_bias", style="primary"),
+                btn(u"🔔 " + T("btn.alerts"), "alert_menu"),
+            ],
+            [btn(T("btn.desk"), "desk_menu"), btn(T("btn.home"), "home", style="primary")],
+        ]
+    }
+
+
+def _sig_levels(uid):
+    rec = {}
+    try:
+        rec = load_user_mem(uid) or {}
+    except Exception:
+        rec = {}
+    sig = rec.get("last_sig") if isinstance(rec, dict) else None
+    if not isinstance(sig, dict):
+        sig = {}
+    return sig
+
+
+def tool_size_text(uid):
+    sig = _sig_levels(uid)
+    pair = sig.get("pair") or "XAUUSD"
+    entry = sig.get("entry") or sig.get("px")
+    sl = sig.get("sl")
+    eq = 10000.0
+    risk = eq * 0.01
+    body = T("txt.tools") + u"\n\n"
+    body += u"<b>%s</b>\n" % pair
+    if entry and sl:
+        dist = abs(float(entry) - float(sl))
+        body += u"ورود <code>%s</code> · حد ضرر <code>%s</code>\n" % (entry, sl)
+        body += u"فاصله %s\n" % dist
+        if dist:
+            units = risk / dist
+            body += u"حساب نمونه ۱۰٬۰۰۰ · ریسک ۱٪ = %s\n" % int(risk)
+            body += u"حجم تقریبی واحد / فاصله = <code>%.4f</code>\n" % units
+    else:
+        body += u"اول یک سیگنال زنده با حد ضرر بگیر تا حجم از روی فاصله حساب شود.\n"
+    body += u"سقف ریسک ۱٪. حد ضرر اجباری است."
+    return tz_head(T("head.tools")) + body + u"\n" + tz_foot()
+
+
+def tool_rr_text(uid):
+    sig = _sig_levels(uid)
+    e, sl, tp = sig.get("entry"), sig.get("sl"), sig.get("tp")
+    body = T("txt.tools") + u"\n\n"
+    if e and sl and tp:
+        risk = abs(float(e) - float(sl))
+        rew = abs(float(tp) - float(e))
+        rr = (rew / risk) if risk else 0
+        body += u"ورود %s · SL %s · TP %s\n" % (e, sl, tp)
+        body += u"R:R <b>%.2f</b>\n" % rr
+    else:
+        rr = sig.get("rr")
+        body += u"R:R ذخیره‌شده: %s\n" % (rr or "—")
+        body += u"سیگنال زنده با سه عدد لازم است."
+    return tz_head(T("head.tools")) + body + u"\n" + tz_foot()
+
+
+def tool_pips_text(uid):
+    sig = _sig_levels(uid)
+    pair = sig.get("pair") or "EURUSD"
+    meta = PAIRS.get(pair) or {}
+    pip = meta.get("pip") or 0.0001
+    px, _rows = _last_px(pair)
+    body = T("txt.tools") + u"\n\n<b>%s</b>\nپیپ %s\n" % (pair, pip)
+    if px:
+        body += u"قیمت زنده <code>%s</code>\n" % px
+    e, sl = sig.get("entry"), sig.get("sl")
+    if e and sl and pip:
+        body += u"فاصله حد ضرر ≈ %.1f پیپ\n" % (abs(float(e) - float(sl)) / float(pip))
+    return tz_head(T("head.tools")) + body + u"\n" + tz_foot()
+
+
+def tool_clocks_text():
+    t = tehran_tuple()
+    # London UTC+0/+1 approx: Tehran is UTC+3:30 so London = t - 3h30 in winter. Show clock labels only.
+    th = t.tm_hour
+    tm = t.tm_min
+    body = T("txt.tools") + u"\n\n"
+    body += u"تهران <b>%02d:%02d</b>\n" % (th, tm)
+    try:
+        body += session_card_text()
+    except Exception:
+        body += tehran_fmt()
+    return tz_head(T("btn.clocks")) + body + u"\n" + tz_foot()
+
+
+def tool_opens_text():
+    lines = [T("txt.tools"), u""]
+    for pair in FX_PAIRS:
+        px, rows = _last_px(pair)
+        if not rows:
+            lines.append(u"%s —" % pair)
+            continue
+        day = rows[-min(len(rows), 96)]["o"] if len(rows) >= 2 else rows[0]["o"]
+        week = rows[0]["o"]
+        lines.append(u"<b>%s</b> زنده %s · اوپن تقریبی روز %s" % (pair, px, day))
+    return tz_head(T("btn.opens")) + u"\n".join(lines) + u"\n" + tz_foot()
+
+
+def tool_check_text():
+    items = (
+        u"۱. جهت تایم بالا؟",
+        u"۲. سوئیپ انجام شد؟",
+        u"۳. جابجایی / MSS؟",
+        u"۴. ورود داخل FVG؟",
+        u"۵. حد ضرر گذاشتی؟",
+        u"۶. حجم ۱٪؟",
+        u"دو تا نه = کلیک نکن.",
+    )
+    return tz_head(T("btn.check")) + T("txt.tools") + u"\n\n" + u"\n".join(items) + u"\n" + tz_foot()
+
+
+def tool_bias_text():
+    lines = [T("txt.tools"), u""]
+    for pair in FX_PAIRS:
+        px, rows = _last_px(pair)
+        if not rows or len(rows) < 3:
+            lines.append(u"%s —" % pair)
+            continue
+        a, b = rows[-20]["c"] if len(rows) > 20 else rows[0]["c"], rows[-1]["c"]
+        bias = u"صعودی" if b >= a else u"نزولی"
+        lines.append(u"<b>%s</b> %s · %s" % (pair, px, bias))
+    lines.append(u"این جهت خام است. بدون مدل کامل = صبر.")
+    return tz_head(T("btn.bias")) + u"\n".join(lines) + u"\n" + tz_foot()
 
 
 def kb_alerts():
@@ -10402,6 +10551,11 @@ def handle_user(token, user_id, chat_id, cmd, payload=""):
         send_message(token, chat_id, txt_start(), kb_main(user_id))
         if not is_pro(user_id):
             send_message(token, chat_id, txt_paywall(user_id), kb_pay())
+        return
+    if cmd in ("/tools", "tools", u"ابزار"):
+        if not gate(token, user_id, chat_id, need_pro=False):
+            return
+        send_message(token, chat_id, tz_head(T("head.tools")) + T("txt.tools") + u"\n" + tz_foot(), kb_tools())
         return
     if cmd in ("/donate", "donate", u"حمایت", "/supporttz"):
         if not gate(token, user_id, chat_id, need_pro=False):

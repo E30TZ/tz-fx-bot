@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+Desk tools hub (size, R:R, pips, clocks, opens, checklist, HTF bias).
+Private chat still edits in place. Unicode emoji on tools. ICT lock unchanged.
+
+
 ## 1.0.0 — 2026-09-22
 
 Public tree.
