@@ -95,6 +95,8 @@ TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس 
 
 ### تلگرام
 
+میز در چت خصوصی همان پیام را ادیت می‌کند.
+
 `/start` `/signal` `/crypto` `/learn` `/wr` `/lang` `/help` `/donate`
 
 اضافهٔ مالک: `/connect` `/paper` `/admin`

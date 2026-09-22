@@ -1520,10 +1520,7 @@ _pe_tried = [False]
 
 
 def pe(ch):
-    cid = _pe_map.get(ch)
-    if not cid or _pe_off[0]:
-        return ch
-    return u'<tg-emoji emoji-id="%s">%s</tg-emoji>' % (cid, ch)
+    return ch
 
 
 def _strip_pe(text):
@@ -1577,7 +1574,8 @@ def _pe_load_file():
 
 
 def emojify(text, limit=16):
-    """Wrap unicode emoji with premium <tg-emoji> when we know the id. Skip HTML tags."""
+    """No premium custom emoji — Unicode only."""
+    return text
     if not text or _pe_off[0] or not _pe_map:
         return text
     items = sorted(
@@ -1732,14 +1730,14 @@ def load_pe_sets(token):
 
 
 def tz_head(line=None):
-    s = pe(u"✨") + u" <b>TZ FX</b>"
+    s = u"<b>TZ FX</b>"
     if line:
-        s += u"  ·  " + line
-    return s + u"\n────────────\n"
+        s += u" · " + line
+    return s + u"\n"
 
 
 def tz_foot():
-    return u"────────────\n<i>%s</i>" % T("brand.foot")
+    return u"\n<blockquote>%s</blockquote>" % T("brand.foot")
 
 
 def share_url():
@@ -3011,55 +3009,159 @@ def send_chart(token, chat_id, rows, pair, sig, label, caption, markup=None, rep
     return send_message(token, chat_id, caption, markup, reply_to=reply_to)
 
 
-def send_message(token, chat_id, text, markup=None, parse_mode="HTML", reply_to=None):
-    import requests
+_UI = {"desk": False, "mid": None, "chat": None}
 
+
+def ui_desk(chat_id, message_id=None):
+    _UI["desk"] = True
+    _UI["chat"] = chat_id
+    try:
+        _UI["mid"] = int(message_id) if message_id else None
+    except Exception:
+        _UI["mid"] = None
+
+
+def ui_desk_off():
+    _UI["desk"] = False
+    _UI["mid"] = None
+    _UI["chat"] = None
+
+
+def delete_message(token, chat_id, message_id):
+    if not message_id:
+        return
+    try:
+        http().post(
+            tg_api(token) + "/deleteMessage",
+            json={"chat_id": chat_id, "message_id": int(message_id)},
+            timeout=8,
+        )
+    except Exception:
+        pass
+
+
+def _remember_desk(chat_id, mid):
+    if not mid or mid is True:
+        return
+    try:
+        _UI["mid"] = int(mid)
+        _UI["chat"] = chat_id
+        rec = load_user_mem(chat_id)
+        rec["desk_mid"] = int(mid)
+        save_user_mem(chat_id, rec)
+    except Exception:
+        pass
+
+
+def send_message(token, chat_id, text, markup=None, parse_mode="HTML", reply_to=None, force_new=False):
     if not text:
         return False
-    text = emojify(text, 18)
-    payload = {
-        "chat_id": chat_id,
-        "text": text[:4000],
-        "disable_web_page_preview": True,
-        "allow_sending_without_reply": True,
-    }
-    if parse_mode:
-        payload["parse_mode"] = parse_mode
-    if markup:
-        payload["reply_markup"] = markup
-    if reply_to is not None:
-        try:
-            payload["reply_to_message_id"] = int(reply_to)
-        except Exception:
-            pass
+    text = _strip_pe(text)[:4096]
+    lang = "fa"
     try:
-        r = http().post(tg_api(token) + "/sendMessage", json=payload, timeout=12)
-        data = r.json()
-        if data.get("ok"):
-            return (data.get("result") or {}).get("message_id") or True
-        log("send fail " + str(data)[:240])
-        desc = str(data).lower()
-        if "chat not found" in desc or "forbidden" in desc or "blocked by the user" in desc or "kicked" in desc:
-            return False
-        if text and "<tg-emoji" in text:
-            payload["text"] = _strip_pe(text)[:4000]
-            payload["parse_mode"] = "HTML"
-            r_pe = http().post(tg_api(token) + "/sendMessage", json=payload, timeout=12)
-            d_pe = r_pe.json() if r_pe.content else {}
-            if d_pe.get("ok"):
-                log("pe fallback unicode")
-                return (d_pe.get("result") or {}).get("message_id") or True
-        payload.pop("parse_mode", None)
-        payload["text"] = _strip_pe(text)[:4000]
-        r2 = http().post(tg_api(token) + "/sendMessage", json=payload, timeout=12)
-        d2 = r2.json() or {}
-        if not d2.get("ok"):
-            log("send retry fail " + r2.text[:200])
-            return False
-        return (d2.get("result") or {}).get("message_id") or True
+        lang = _LANG.get("code") or "fa"
     except Exception:
-        log("send error " + traceback.format_exc())
-        return False
+        pass
+    rich = {"html": text, "is_rtl": lang != "en", "skip_entity_detection": True}
+
+    def _edit(mid):
+        body = {
+            "chat_id": chat_id,
+            "message_id": int(mid),
+            "rich_message": rich,
+            "link_preview_options": {"is_disabled": True},
+        }
+        if markup is not None:
+            body["reply_markup"] = markup
+        try:
+            r = http().post(tg_api(token) + "/editMessageText", json=body, timeout=12)
+            d = r.json() if r.content else {}
+            if d.get("ok") or "not modified" in str(d).lower():
+                return int(mid)
+            body2 = {
+                "chat_id": chat_id,
+                "message_id": int(mid),
+                "text": text[:4000],
+                "disable_web_page_preview": True,
+                "parse_mode": parse_mode or "HTML",
+            }
+            if markup is not None:
+                body2["reply_markup"] = markup
+            r2 = http().post(tg_api(token) + "/editMessageText", json=body2, timeout=12)
+            d2 = r2.json() if r2.content else {}
+            if d2.get("ok") or "not modified" in str(d2).lower():
+                return int(mid)
+        except Exception:
+            log("edit fail " + traceback.format_exc().split("\n")[0][:120])
+        return None
+
+    def _send():
+        body = {"chat_id": chat_id, "rich_message": rich}
+        if markup:
+            body["reply_markup"] = markup
+        if reply_to is not None:
+            try:
+                body["reply_parameters"] = {
+                    "message_id": int(reply_to),
+                    "allow_sending_without_reply": True,
+                }
+            except Exception:
+                pass
+        try:
+            r = http().post(tg_api(token) + "/sendRichMessage", json=body, timeout=12)
+            d = r.json() if r.content else {}
+            if d.get("ok"):
+                return (d.get("result") or {}).get("message_id")
+            log("rich fail " + str(d)[:180])
+        except Exception:
+            log("rich err " + traceback.format_exc().split("\n")[0][:120])
+        payload = {
+            "chat_id": chat_id,
+            "text": text[:4000],
+            "disable_web_page_preview": True,
+            "allow_sending_without_reply": True,
+        }
+        if parse_mode:
+            payload["parse_mode"] = parse_mode
+        if markup:
+            payload["reply_markup"] = markup
+        if reply_to is not None:
+            try:
+                payload["reply_to_message_id"] = int(reply_to)
+            except Exception:
+                pass
+        try:
+            r = http().post(tg_api(token) + "/sendMessage", json=payload, timeout=12)
+            data = r.json() if r.content else {}
+            if data.get("ok"):
+                return (data.get("result") or {}).get("message_id") or True
+            desc = str(data).lower()
+            if "chat not found" in desc or "forbidden" in desc or "blocked by the user" in desc or "kicked" in desc:
+                return False
+            payload.pop("parse_mode", None)
+            payload["text"] = _strip_pe(text)[:4000]
+            r2 = http().post(tg_api(token) + "/sendMessage", json=payload, timeout=12)
+            d2 = r2.json() if r2.content else {}
+            if d2.get("ok"):
+                return (d2.get("result") or {}).get("message_id") or True
+            log("send retry fail " + str(d2)[:180])
+            return False
+        except Exception:
+            log("send error " + traceback.format_exc())
+            return False
+
+    if (not force_new) and _UI.get("desk") and _UI.get("chat") == chat_id and _UI.get("mid"):
+        got = _edit(_UI["mid"])
+        if got:
+            _remember_desk(chat_id, got)
+            return got
+    old = _UI.get("mid") if (_UI.get("desk") and _UI.get("chat") == chat_id) else None
+    nid = _send()
+    if nid and old and old != nid:
+        delete_message(token, chat_id, old)
+    if nid:
+        _remember_desk(chat_id, nid)
+    return nid
 
 
 _EDGE_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4"
@@ -9002,6 +9104,7 @@ def _blank_mem(uid):
         "last_ans": "",
         "last_sig": None,
         "lang": "fa",
+        "desk_mid": None,
         "ts": 0,
     }
 
@@ -10444,6 +10547,7 @@ def kb_support_owner(uid):
 
 def start_support(token, user_id, chat_id):
     set_wait(user_id, "support")
+    ui_desk_off()
     rec = load_user_mem(user_id)
     name = rec.get("name") or u"رفیق"
     send_message(
@@ -10639,6 +10743,15 @@ def handle_message(token, msg):
         mem_touch(user_id, name=nm)
     except Exception:
         pass
+    if ctype == "private":
+        raw_txt = (msg.get("text") or "")
+        if raw_txt.startswith("/"):
+            delete_message(token, chat_id, msg.get("message_id"))
+        try:
+            rec = load_user_mem(user_id)
+            ui_desk(chat_id, rec.get("desk_mid"))
+        except Exception:
+            ui_desk(chat_id, None)
     npe = 0
     try:
         npe = harvest_pe(msg)
@@ -10822,6 +10935,8 @@ def handle_callback(token, cq):
         use_lang(user_id, cq.get("from"))
     except Exception:
         pass
+    if (chat.get("type") or "") == "private":
+        ui_desk(chat_id, msg.get("message_id"))
     try:
         log("cb uid=%s data=%s ctype=%s" % (user_id, (data or "")[:40], chat.get("type")))
     except Exception:
