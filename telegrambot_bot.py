@@ -3161,6 +3161,15 @@ def send_message(token, chat_id, text, markup=None, parse_mode="HTML", reply_to=
         delete_message(token, chat_id, old)
     if nid:
         _remember_desk(chat_id, nid)
+        try:
+            log("send ok mid=%s new=%s" % (nid, int(bool(force_new))))
+        except Exception:
+            pass
+    else:
+        try:
+            log("send fail chat=%s desk=%s" % (chat_id, _UI.get("desk")))
+        except Exception:
+            pass
     return nid
 
 
@@ -10548,9 +10557,10 @@ def handle_user(token, user_id, chat_id, cmd, payload=""):
             return
         if not gate(token, user_id, chat_id, need_pro=False):
             return
-        send_message(token, chat_id, txt_start(), kb_main(user_id))
+        ui_desk_off()
+        send_message(token, chat_id, txt_start(), kb_main(user_id), force_new=True)
         if not is_pro(user_id):
-            send_message(token, chat_id, txt_paywall(user_id), kb_pay())
+            send_message(token, chat_id, txt_paywall(user_id), kb_pay(), force_new=True)
         return
     if cmd in ("/tools", "tools", u"ابزار"):
         if not gate(token, user_id, chat_id, need_pro=False):
@@ -10899,13 +10909,17 @@ def handle_message(token, msg):
         pass
     if ctype == "private":
         raw_txt = (msg.get("text") or "")
+        # Slash commands must appear as a new bubble at the bottom.
+        # Binding a stale desk_mid made /start edit a message far up the chat
+        # while the command itself disappeared — looked like a dead bot.
         if raw_txt.startswith("/"):
-            delete_message(token, chat_id, msg.get("message_id"))
-        try:
-            rec = load_user_mem(user_id)
-            ui_desk(chat_id, rec.get("desk_mid"))
-        except Exception:
-            ui_desk(chat_id, None)
+            ui_desk_off()
+        else:
+            try:
+                rec = load_user_mem(user_id)
+                ui_desk(chat_id, rec.get("desk_mid"))
+            except Exception:
+                ui_desk_off()
     npe = 0
     try:
         npe = harvest_pe(msg)

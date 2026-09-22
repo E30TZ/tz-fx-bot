@@ -95,9 +95,11 @@ TZ FX BOT ربات تلگرام و مینی‌اپ برای اسکن فارکس 
 
 ### تلگرام
 
-میز در چت خصوصی همان پیام را ادیت می‌کند.
+`/start` خانه را **پایین چت** می‌فرستد. دکمه‌های میز همان پیام را ادیت می‌کنند.
 
-`/start` `/signal` `/crypto` `/learn` `/wr` `/lang` `/help` `/donate`
+فهرست قابلیت‌ها: [docs/FEATURES.md](docs/FEATURES.md)
+
+`/start` `/signal` `/crypto` `/learn` `/tools` `/wr` `/lang` `/help` `/donate`
 
 اضافهٔ مالک: `/connect` `/paper` `/admin`
 
@@ -188,7 +190,11 @@ Do not loosen this in a pull request.
 
 ### Telegram
 
-`/start` `/signal` `/crypto` `/learn` `/wr` `/lang` `/help` `/donate`
+`/start` posts home at the **bottom** of the chat. Desk buttons edit that card.
+
+Capability index: [docs/FEATURES.md](docs/FEATURES.md)
+
+`/start` `/signal` `/crypto` `/learn` `/tools` `/wr` `/lang` `/help` `/donate`
 
 Owner extras: `/connect` `/paper` `/admin`
 
