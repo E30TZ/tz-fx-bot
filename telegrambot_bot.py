@@ -9983,7 +9983,7 @@ def local_brain(text):
             lines.append(
                 u"%s %s %s  قیمت %s  امتیاز %s/6\nورود %s  SL %s  TP %s"
                 % (
-                    PAIRS[p]["emoji"],
+                    (PAIRS.get(p) or {}).get("emoji") or u"",
                     p,
                     side,
                     px,
@@ -9998,7 +9998,7 @@ def local_brain(text):
         else:
             lines.append(
                 u"%s %s  قیمت %s  · صبر: %s"
-                % (PAIRS[p]["emoji"], p, px, sig.get("reason") or "ستاپ نیست")
+                % ((PAIRS.get(p) or {}).get("emoji") or u"", p, px, sig.get("reason") or "ستاپ نیست")
             )
     lines.append(u"آموزشی است · عدد الکی نیست.")
     return u"\n".join(lines)
@@ -10076,16 +10076,18 @@ def _ai_chat_inner(token, user_id, chat_id, text, short=False, reply_to=None, sp
         else:
             markup = kb_edu()
     mode = "HTML" if (u"<b>" in ans or u"<code>" in ans) else None
-    ok = send_message(token, chat_id, ans, markup, parse_mode=mode, reply_to=reply_to)
+    ui_desk_off()
+    ok = send_message(token, chat_id, ans, markup, parse_mode=mode, reply_to=reply_to, force_new=True)
     if not ok:
-        ok = send_message(token, chat_id, strip_html(ans)[:3500], markup, parse_mode=None, reply_to=reply_to)
+        ok = send_message(token, chat_id, strip_html(ans)[:3500], markup, parse_mode=None, reply_to=reply_to, force_new=True)
     if not ok:
         log("ai_chat send fail uid=%s chat=%s" % (user_id, chat_id))
-    try:
-        speak_text(token, chat_id, strip_html(ans)[:450], markup=markup, caption="")
-    except Exception:
-        log("speak " + traceback.format_exc())
-    log("ai_chat uid=%s n=%s send=%s" % (user_id, len(ans or ""), bool(ok)))
+    if speak:
+        try:
+            speak_text(token, chat_id, strip_html(ans)[:450], markup=markup, caption="")
+        except Exception:
+            log("speak " + traceback.format_exc())
+    log("ai_chat uid=%s n=%s send=%s speak=%s" % (user_id, len(ans or ""), bool(ok), int(bool(speak))))
 
 
 def apply_admin_setting(token, chat_id, kind, text):
@@ -11410,6 +11412,7 @@ def handle_callback(token, cq):
             answer_callback(token, cq_id, u"اول کانال را عضو شو")
             return
         answer_callback(token, cq_id)
+        ui_desk_off()
         rec = load_user_mem(user_id)
         name = rec.get("name") or u"رفیق"
         fav = rec.get("pair") or u"یورو / پوند / طلا"
@@ -11420,20 +11423,10 @@ def handle_callback(token, cq):
             extra = u"\nحرف‌های قبلی‌ات یادم هست — مال خودت است، با بقیه قاطی نمی‌شود."
         hello = (
             u"🎙️ سلام %s، مربی خودتم.\nنماد محبوب: <b>%s</b>%s\n\n"
-            u"بنویس یا ویس فارسی بفرست — جواب متن و ویس است."
+            u"بنویس یا ویس فارسی بفرست — جواب متن اینجاست. ویس را با ویس جواب می‌دهم."
             % (name, fav, extra)
         )
-        send_message(token, chat_id, hello, kb_after())
-        try:
-            speak_text(
-                token,
-                chat_id,
-                u"سلام %s. مربی خودتی. فارسی بنویس یا ویس بفرست." % name,
-                markup=kb_after(),
-                caption="",
-            )
-        except Exception:
-            log("coach hello speak " + traceback.format_exc())
+        send_message(token, chat_id, hello, kb_after(), force_new=True)
         return
 
     if data == "home":
