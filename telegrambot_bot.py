@@ -9622,7 +9622,7 @@ def gemini_ask(history, user_text, strong=False):
     }
     models = (GEMINI_CHAT_MODELS if strong else GEMINI_MODELS)[:1]
     cap = 2500 if strong else 1800
-    wait = 5
+    wait = 3
     for model in models:
         cfg = dict(gen)
         if strong and ("3.5" in model or "3.1" in model) and "lite" not in model:
@@ -9957,13 +9957,9 @@ def local_brain(text):
             u"امتیاز زیر ۴ را معامله نکن. درس کامل دکمه 🎓."
         )
     lines = [u"🕒 %s" % tehran_fmt(), u"🌍 کیل‌زون: %s · SB: %s" % (kz, sb)]
-    targets = [pair] if pair else list(FX_PAIRS) + list(CRYPTO_CORE[:6])
+    targets = [pair] if pair else list(FX_PAIRS)
+    targets = [p for p in targets if p]
     for p in targets:
-        if p not in PAIRS:
-            try:
-                ensure_crypto_pair(p)
-            except Exception:
-                pass
         rows = _ohlc_cache.get(p + "|15m") or []
         if not rows:
             lines.append(u"%s داده بازار نرسید." % p)
