@@ -15,6 +15,20 @@
 </p>
 
 <p align="center">
+TZ FX BOT دستیار معامله در تلگرام است: اسکنر ICT برای یورو، پوند، طلا و کریپتو اسپات USDT.
+مدل ناقص یعنی صبر. سیگنال زنده همیشه حد ضرر دارد.
+مینی‌اپ، ۲۶ درس، مربی با حافظه جدا، دفتر پیپر، اتصال دمو به صرافی و MT5.
+آموزشی است — مشاوره مالی نیست و سود را تضمین نمی‌کند.
+</p>
+
+<p align="center">
+TZ FX BOT is a Telegram ICT scanner for EURUSD, GBPUSD, XAUUSD and USDT-spot crypto.
+Incomplete geometry returns WAIT. Live setups always include a stop loss.
+Mini App, 26 lessons, per-user mentor, paper desk, demo-gated CEX and MT5.
+Educational software — not financial advice.
+</p>
+
+<p align="center">
   <a href="https://t.me/TZ_FX_BOT">Open bot</a>
   ·
   <a href="docs/README.md">Docs</a>
