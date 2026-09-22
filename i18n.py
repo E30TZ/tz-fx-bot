@@ -72,13 +72,16 @@ FA = {
     "btn.refresh": u"🔄 بروزرسانی",
     "btn.open_pos": u"📡 معاملات باز",
     "txt.start": (
-        u"%s تهران\n"
-        u"<b>فارکس</b> یورو · پوند · طلا\n"
-        u"<b>کریپتو</b> اسپات USDT — اسم را بفرست\n\n"
-        u"مدل ناقص = صبر. حد ضرر اجباری. تعقیب ممنوع.\n"
-        u"کانال رایگان @TZ_FX_CH"
+        u"%s تهران\n\n"
+        u"<b>فارکس</b>\nیورو · پوند · طلا\n\n"
+        u"<b>کریپتو</b>\nاسپات USDT — اسم را بفرست\n\n"
+        u"صبر یک خروجی است.\nحد ضرر اجباری است. سقف ۱٪."
     ),
-    "txt.help": u"/signal سیگنال\n/crypto کوین\n/connect اتصال\n/paper پیپر\n/learn آموزش\n/wr وین‌ریت\n/lang زبان\n\nویس بفرست — مربی جواب می‌دهد.",
+    "txt.help": u"/signal سیگنال\n/crypto کریپتو\n/learn آموزش\n/tools ابزار\n/lang زبان\n\nویس بفرست — مربی جواب می‌دهد.",
+    "lbl.price": u"قیمت",
+    "lbl.entry": u"ورود",
+    "lbl.sl": u"حد ضرر",
+    "lbl.tp": u"حد سود",
     "txt.join": u"اول کانال رایگان را عضو شو، بعد «عضو شدم» را بزن.\nسیگنال کامل با اشتراک است.",
     "txt.paywall_active": u"اشتراک فعال تا %s · حدود %s روز مانده",
     "txt.paywall_none": u"اشتراک نداری",
@@ -86,13 +89,13 @@ FA = {
     "txt.me_on": u"فعال تا %s · %s روز\nVIP: %s\nپاک کردن حافظه مربی: /forget",
     "txt.me_off": u"فعال نیست. برای سیگنال کامل اشتراک بگیر.",
     "txt.crypto": u"%s کوین اسپات USDT.\nاسم را بفرست یا از داغ‌ترین انتخاب کن.\nهندسه همان ICT است — بتا، قول سود نیست.\nکانال: %s",
-    "txt.desk": u"رادار · سشن · ژورنال · پیپر · اتصال",
+    "txt.desk": u"رادار · سشن · ژورنال · ابزار · پیپر",
     "txt.connect": u"دمو است. سفارش به حساب واقعی نمی‌رود.\nصرافی: <b>%s</b> · کلید %s\nMT5: %s\nریسک ۱٪ · حد ضرر اجباری",
     "txt.connect_ready": u"اتصال آماده است. صرافی را بزن، بعد کلید.",
     "txt.edu_intro": u"ICT از صفر تا اجرا.\nدرس را باز کن. API و اتصال در سطح ۵.",
     "txt.gate_join": u"اول کانال را عضو شو",
     "txt.gate_pay": u"اشتراک لازم است",
-    "txt.coach_hello": u"🎙️ سلام %s، مربی خودتم.\nنماد محبوب: <b>%s</b>%s\n\nبنویس یا ویس بفرست — جواب متن و ویس است.",
+    "txt.coach_hello": u"سلام %s.\nنماد: <b>%s</b>%s\n\nبنویس یا ویس بفرست.",
     "txt.coach_hello_speak": u"سلام %s. مربی خودتی. بنویس یا ویس بفرست.",
     "txt.coach_mem": u"\nحرف‌های قبلی‌ات یادم هست — مال خودت است، با بقیه قاطی نمی‌شود.",
     "txt.coach_busy": u"الان مربی شلوغ است. کمی بعد دوباره بپرس.",
@@ -229,13 +232,16 @@ EN = {
     "btn.refresh": u"🔄 Refresh",
     "btn.open_pos": u"📡 Open trades",
     "txt.start": (
-        u"%s Tehran\n"
-        u"<b>Forex</b> EUR · GBP · Gold\n"
-        u"<b>Crypto</b> USDT spot — send the name\n\n"
-        u"Incomplete model = WAIT. Stop loss required. Do not chase.\n"
-        u"Free channel @TZ_FX_CH"
+        u"%s Tehran\n\n"
+        u"<b>Forex</b>\nEUR · GBP · Gold\n\n"
+        u"<b>Crypto</b>\nUSDT spot — send the name\n\n"
+        u"WAIT is a real output.\nStop loss required. Max 1%."
     ),
-    "txt.help": u"/signal signals\n/crypto coins\n/connect venues\n/paper paper trading\n/learn lessons\n/wr win-rate\n/lang language\n\nSend a voice note — the mentor replies.",
+    "txt.help": u"/signal signals\n/crypto crypto\n/learn lessons\n/tools tools\n/lang language\n\nSend a voice note — the mentor replies.",
+    "lbl.price": u"Price",
+    "lbl.entry": u"Entry",
+    "lbl.sl": u"Stop",
+    "lbl.tp": u"Target",
     "txt.join": u"Join the free channel first, then tap “I joined”.\nFull signals require a subscription.",
     "txt.paywall_active": u"Active until %s · about %s days left",
     "txt.paywall_none": u"No active subscription",
@@ -243,13 +249,13 @@ EN = {
     "txt.me_on": u"Active until %s · %s days\nVIP: %s\nClear mentor memory: /forget",
     "txt.me_off": u"Not active. Subscribe for full signals.",
     "txt.crypto": u"%s USDT spot coins.\nSend a name or pick hottest.\nSame ICT geometry — beta, no profit promise.\nChannel: %s",
-    "txt.desk": u"Radar · session · journal · paper · connect",
+    "txt.desk": u"Radar · session · journal · tools · paper",
     "txt.connect": u"Demo mode. No live orders are sent.\nExchange: <b>%s</b> · keys %s\nMT5: %s\n1%% risk · stop loss required",
     "txt.connect_ready": u"Connect is ready. Pick an exchange, then send keys.",
     "txt.edu_intro": u"ICT from zero to execution.\nOpen a lesson. API and connectivity are level 5.",
     "txt.gate_join": u"Join the channel first",
     "txt.gate_pay": u"Subscription required",
-    "txt.coach_hello": u"🎙️ Hi %s — your TZ FX mentor.\nFavorite symbol: <b>%s</b>%s\n\nType or send a voice note — reply is text + voice.",
+    "txt.coach_hello": u"Hi %s.\nSymbol: <b>%s</b>%s\n\nType or send a voice note.",
     "txt.coach_hello_speak": u"Hi %s. I am your mentor. Type or send a voice note.",
     "txt.coach_mem": u"\nI remember your earlier notes — they stay isolated to you.",
     "txt.coach_busy": u"Mentor is busy. Try again in a moment.",

@@ -1737,7 +1737,7 @@ def tz_head(line=None):
 
 
 def tz_foot():
-    return u"\n<blockquote>%s</blockquote>" % T("brand.foot")
+    return u"\n<i>%s</i>" % T("brand.foot")
 
 
 def share_url():
@@ -2022,11 +2022,9 @@ def kb_after():
                 btn(T("btn.xau"), "sig_XAUUSD", style="success"),
             ],
             [
-                btn(T("btn.crypto"), "crypto_menu", style="success"),
                 btn(T("btn.coach"), "chat_ai", style="primary"),
+                btn(T("btn.home"), "home", style="primary"),
             ],
-            [btn(T("btn.hear"), "hear", style="success"), btn(T("btn.lang"), "lang_toggle")],
-            [btn(T("btn.home"), "home", style="primary")],
         ]
     }
 
@@ -6268,123 +6266,41 @@ def kb_tf(pair):
 
 
 def format_signal(sig):
-    pair = sig["pair"]
-    meta = PAIRS[pair]
-    if is_crypto_pair(pair):
-        unit = u"دلار"
-    elif pair == "XAUUSD":
-        unit = u"واحد"
-    else:
-        unit = u"پیپ"
-    htf = sig.get("htf") or {}
+    pair = sig.get("pair") or ""
+    meta = PAIRS.get(pair) or {"emoji": "", "name": pair}
+    name = meta.get("name") or pair
+    emo = meta.get("emoji") or ""
     tf_l = sig.get("tf_label") or u"۱۵م"
-    model = sig.get("model") or u"ICT"
-    if is_crypto_pair(pair):
-        model = u"ICT بتا · کریپتو"
-    if sig["side"] == "NO SIGNAL":
-        extra = ""
-        if sig.get("buy_liq"):
-            extra += u"\n🟢 نقدینگی خرید  <code>%s</code>" % fmt_px(pair, sig["buy_liq"])
-        if sig.get("sell_liq"):
-            extra += u"\n🔴 نقدینگی فروش  <code>%s</code>" % fmt_px(pair, sig["sell_liq"])
-        hline = ""
-        if htf:
-            hline = u"\n🧭 ۱H  <b>%s</b> · %s" % (htf.get("bias") or "-", htf.get("pd") or "-")
+    when = sig.get("time") or tehran_fmt()
+    title = u"<b>TZ FX</b> · %s %s\n%s · %s\n\n" % (emo, name, when, tf_l)
+    foot = u"\n<i>%s</i>" % T("brand.disclaimer")
+    side = sig.get("side") or "NO SIGNAL"
+    if side == "NO SIGNAL":
+        px = u"—"
+        try:
+            if sig.get("price") is not None:
+                px = fmt_px(pair, sig.get("price"))
+        except Exception:
+            px = u"—"
+        reason = sig.get("reason") or T("txt.no_signal")
         return (
-            pe(u"✨")
-            + u" <b>TZ FX</b>  ·  %s  <b>%s</b>\n<i>%s · %s · تهران</i>\n────────────\n"
-            + pe(u"☕")
-            + u"  <b>الان ستاپ کامل نیست</b>\nقیمت  <code>%s</code>%s\n<blockquote>"
-            + pe(u"✋")
-            + u" %s\nدست نگه دار، تعقیب نکن.</blockquote>%s\n📋 %s\n────────────\n<i>"
-            + pe(u"⚖️")
-            + u" آموزشی است  ·  مشاوره مالی نیست</i>"
-        ) % (
-            meta["emoji"],
-            meta["name"],
-            model,
-            tf_l,
-            fmt_px(pair, sig["price"]),
-            hline,
-            sig.get("reason") or u"ستاپ ICT کامل نیست",
-            extra,
-            ict_checklist(sig),
+            title
+            + u"<b>%s</b>\n" % T("txt.wait")
+            + u"%s  <code>%s</code>\n" % (T("lbl.price"), px)
+            + reason
+            + u"\n"
+            + foot
         )
-
-    if sig["side"] == "BUY":
-        head = pe(u"💚") + u"  <b>BUY</b>  بزن بریم"
-    else:
-        head = pe(u"❤️") + u"  <b>SELL</b>  بزن بریم"
-    rr = (sig["reward_pips"] / sig["risk_pips"]) if sig.get("risk_pips") else 0
+    side_l = T("txt.buy") if side == "BUY" else T("txt.sell")
     sc = int(sig.get("score") or 0)
-    if sc >= 5:
-        quality = u"قوی"
-    elif sc >= 4:
-        quality = u"قابل‌قبول"
-    else:
-        quality = u"ضعیف"
-    warn = (u"\n⚠️ " + sig["warn"]) if sig.get("warn") else ""
-    verdict = sig.get("ai_verdict") or ""
-    if verdict == "CONFIRM":
-        ai_line = pe(u"🤖") + u" مربی تأیید کرد " + pe(u"👍") + u"\n"
-    elif verdict == "REJECT":
-        ai_line = pe(u"🤖") + u" مربی گفت وارد نشو\n"
-    else:
-        ai_line = ""
-    fvg_b = sig.get("fvg_bot")
-    fvg_t = sig.get("fvg_top")
-    try:
-        fvg_s = u"<code>%s</code> — <code>%s</code>" % (fmt_px(pair, fvg_b), fmt_px(pair, fvg_t))
-    except Exception:
-        fvg_s = u"—"
-    return (
-        pe(u"✨")
-        + u" <b>TZ FX</b>  ·  %s  <b>%s</b>\n<i>%s · %s · تهران</i>\n────────────\n%s    %s  <b>%s/6</b>  %s\n"
-        + pe(u"🕒")
-        + u" %s\n"
-        + pe(u"🌍")
-        + u" %s\n"
-        + pe(u"🧭")
-        + u" ۱H  <b>%s</b> · %s\n────────────\n"
-        + pe(u"🎯")
-        + u" ورود          <code>%s</code>\n"
-        + pe(u"🛡️")
-        + u" حد ضرر       <code>%s</code>\n"
-        + pe(u"🏁")
-        + u" حد سود       <code>%s</code>\n"
-        + pe(u"🚫")
-        + u" باطل          بسته شدن ۱۵م آن‌سوی حد ضرر\n"
-        + pe(u"📦")
-        + u" FVG           %s\n"
-        + pe(u"💥")
-        + u" ریسک <b>%.1f</b> %s   ·   R:R  <b>1:%.1f</b>\n"
-        + pe(u"💼")
-        + u" حداکثر ۱٪ حساب · نرسید تعقیب نکن · اول دمو\n%s%s────────────\n<i>"
-        + pe(u"⚖️")
-        + u" آموزشی است  ·  مشاوره مالی نیست</i>"
-    ) % (
-        meta["emoji"],
-        meta["name"],
-        model,
-        tf_l,
-        head,
-        stars(sc),
-        sc,
-        quality,
-        sig.get("time") or tehran_fmt(),
-        sig.get("killzone") or u"—",
-        htf.get("bias") or "-",
-        htf.get("pd") or "-",
-        fmt_px(pair, sig["entry"]),
-        fmt_px(pair, sig["sl"]),
-        fmt_px(pair, sig["tp"]),
-        fvg_s,
-        sig.get("risk_pips") or 0,
-        unit,
-        rr,
-        ai_line,
-        warn,
-    )
+    body = u"<b>%s</b> · %s/6\n\n" % (side_l, sc)
+    body += u"%s     <code>%s</code>\n" % (T("lbl.entry"), fmt_px(pair, sig.get("entry")))
+    body += u"%s  <code>%s</code>\n" % (T("lbl.sl"), fmt_px(pair, sig.get("sl")))
+    body += u"%s  <code>%s</code>\n" % (T("lbl.tp"), fmt_px(pair, sig.get("tp")))
+    warn = sig.get("warn")
+    if warn:
+        body += u"\n%s\n" % warn
+    return title + body + foot
 
 
 def format_signal_story(sig):
@@ -6418,35 +6334,20 @@ def format_signal_story(sig):
     steps.append(
         u"6️⃣ حد سود روی نقدینگی مخالف  <code>%s</code>" % fmt_px(pair, sig["tp"])
     )
-    how = (
-        u"نزدیک ورود بزن؛ دور شد ولش کن. حداکثر ۱٪ حساب. "
-        u"بعد از ۱R حد ضرر را روی ورود بیاور. اول دمو — من کنارت‌ام."
-    )
-    conf = " · ".join(sig.get("confluence") or [])
-    conf_l = (u"\n🔹 " + conf) if conf else ""
-    note = (sig.get("ai_note") or "").strip()
-    ai = (u"\n🤖 " + note) if note else ""
-    warn = (u"\n⚠️ " + sig["warn"]) if sig.get("warn") else ""
-    setup = sig.get("setup") or u"ICT"
+    how = u"نزدیک ورود بزن. دور شد ولش کن. سقف ۱٪. حد ضرر اجباری."
+    warn = (u"\n" + sig["warn"]) if sig.get("warn") else ""
     return (
-        pe(u"🧠")
-        + u" <b>داستان همین سیگنال</b>\n%s <b>%s</b>  ·  %s  ·  %s\n<i>%s</i>\n────────────\n%s\n────────────\n📋 %s%s%s%s\n────────────\n"
-        + pe(u"💡")
-        + u" %s\n<i>"
-        + pe(u"🤝")
-        + u" آموزشی است · مشاوره مالی نیست</i>"
-    ) % (
-        meta["emoji"],
-        pair,
-        want,
-        sig.get("tf_label") or u"۱۵م",
-        setup,
-        u"\n".join(steps),
-        ict_checklist(sig),
-        conf_l,
-        ai,
-        warn,
-        how,
+        u"<b>TZ FX</b> · %s %s\n%s · %s\n\n%s\n\n%s%s\n\n<i>%s</i>"
+        % (
+            meta.get("emoji") or "",
+            pair,
+            want,
+            sig.get("tf_label") or u"۱۵م",
+            u"\n".join(steps),
+            how,
+            warn,
+            T("brand.foot"),
+        )
     )
 
 
@@ -7543,39 +7444,19 @@ def kb_wr():
 
 
 def kb_crypto():
-    try:
-        n = len((load_crypto_universe() or {}).get("syms") or {})
-    except Exception:
-        n = 0
-    nlab = u"%s کوین" % n if n else u"همه کوین‌ها"
     return {
         "inline_keyboard": [
             [
                 btn(u"₿ BTC", "sig_BTCUSDT", style="success"),
                 btn(u"⟠ ETH", "sig_ETHUSDT", style="primary"),
                 btn(u"◎ SOL", "sig_SOLUSDT", style="primary"),
-                btn(u"🟡 BNB", "sig_BNBUSDT"),
-            ],
-            [
-                btn(u"💧 XRP", "sig_XRPUSDT"),
-                btn(u"🐶 DOGE", "sig_DOGEUSDT"),
-                btn(u"🐸 PEPE", "sig_PEPEUSDT"),
-                btn(u"🐕 SHIB", "sig_SHIBUSDT"),
-            ],
-            [
-                btn(T("btn.find_coin"), "cx_find", style="success"),
             ],
             [
                 btn(T("btn.hot"), "cx_hot", style="primary"),
-                btn(u"📋 %s" % nlab, "cx_all"),
+                btn(T("btn.find_coin"), "cx_find", style="success"),
             ],
-            [
-                btn(T("btn.crypto_radar"), "radar_crypto", style="primary"),
-                btn(T("btn.crypto_brief"), "brief_crypto", style="primary"),
-            ],
-            [btn(T("btn.crypto_core"), "sig_CRYPTO", style="success")],
-            [btn(T("btn.crypto_ch"), url=CRYPTO_CHANNEL_URL, style="success")],
-            [btn(u"🏠 TZ FX", "home", style="primary")],
+            [btn(T("btn.crypto_ch"), url=CRYPTO_CHANNEL_URL)],
+            [btn(T("btn.home"), "home", style="primary")],
         ]
     }
 
@@ -10558,8 +10439,6 @@ def handle_user(token, user_id, chat_id, cmd, payload=""):
             return
         ui_desk_off()
         send_message(token, chat_id, txt_start(), kb_main(user_id), force_new=True)
-        if not is_pro(user_id):
-            send_message(token, chat_id, txt_paywall(user_id), kb_pay(), force_new=True)
         return
     if cmd in ("/tools", "tools", u"ابزار"):
         if not gate(token, user_id, chat_id, need_pro=False):
@@ -11132,8 +11011,6 @@ def handle_callback(token, cq):
         if in_channel(token, user_id):
             answer_callback(token, cq_id, "عضو شدی ✅")
             send_message(token, chat_id, txt_start(), kb_main(user_id))
-            if not is_pro(user_id):
-                send_message(token, chat_id, txt_paywall(user_id), kb_pay())
         else:
             answer_callback(token, cq_id, "هنوز عضو نیستی")
             send_message(token, chat_id, txt_join(), kb_join())
@@ -11415,14 +11292,8 @@ def handle_callback(token, cq):
         fav = rec.get("pair") or u"یورو / پوند / طلا"
         topic = rec.get("topic") or "edu_0"
         set_wait(user_id, "edu_chat", {"lesson": topic})
-        extra = u""
-        if rec.get("summary") or rec.get("facts") or rec.get("notes"):
-            extra = u"\nحرف‌های قبلی‌ات یادم هست — مال خودت است، با بقیه قاطی نمی‌شود."
-        hello = (
-            u"🎙️ سلام %s، مربی خودتم.\nنماد محبوب: <b>%s</b>%s\n\n"
-            u"بنویس یا ویس فارسی بفرست — جواب متن اینجاست. ویس را با ویس جواب می‌دهم."
-            % (name, fav, extra)
-        )
+        extra = T("txt.coach_mem") if (rec.get("summary") or rec.get("facts") or rec.get("notes")) else u""
+        hello = tz_head(T("head.coach")) + (T("txt.coach_hello") % (name, fav, extra)) + u"\n" + tz_foot()
         send_message(token, chat_id, hello, kb_after(), force_new=True)
         return
 
